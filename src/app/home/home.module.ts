@@ -4,14 +4,18 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { ClockComponent } from './clock/clock.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskComponent } from './task/task.component';
+import {AppRoutingModule} from '../app-routing.module';
+import {HomeRoutingModule} from "./home-routing.module";
+import {HomeComponent} from "./home.component";
 
 @NgModule({
   declarations: [SideBarComponent, ClockComponent, TasksComponent, TaskComponent]
   ,
   imports: [
-    BrowserModule],
+    BrowserModule,
+    HomeRoutingModule],
   providers: [],
-  bootstrap: []
+  bootstrap: [HomeComponent]
 })
-export class AppModule { }
+export class HomeModule { }
 // mms
