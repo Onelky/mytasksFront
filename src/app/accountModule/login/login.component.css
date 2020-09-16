@@ -15,11 +15,11 @@ body {
   overflow: hidden; }
 .login-card-img {
   padding-top: 50px;
+  padding-right: 50px;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   border-radius: 0;
-
   -o-object-fit: cover;
   object-fit: cover; }
 .login-card .card-body {
@@ -79,5 +79,23 @@ body {
 .login-card-footer-nav a {
   font-size: 14px;
   color: #919aa3; }
+
+@media (max-width: 765px) {
+  .login-card .card-body {
+    padding: 100px 80px;
+  }
+
+  .login-card-img {
+
+    display: none;
+  }
+
+  @media (min-width: 765px) {
+    .login-card .card-body {
+      padding: 100px 80px;
+
+    }
+  }
+}
 
 /*# sourceMappingURL=login.css.map */

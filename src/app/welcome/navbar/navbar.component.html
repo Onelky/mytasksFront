@@ -1,0 +1,19 @@
+<router-outlet></router-outlet>
+<ngnav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+
+  <div class="container">
+    <a  class="navbar-brand js-scroll-trigger" ng-class = "{custom-text: isHomepage('/')" href="#page-top">MYTASKS</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Features</a></li>
+        <li class="nav-item"><a a ng-class = "{custom-text: isHomepage('/')" class="nav-link js-scroll-trigger" href="account">Sign Up</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#/signup">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</ngnav>
+

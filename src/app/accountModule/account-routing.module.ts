@@ -1,24 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ErrorComponent} from '../error/error.component';
-import {LoginComponent} from "./login/login.component";
-import {SignupComponent} from './signup/signup.component';
-
+import {SignupComponent} from "./signup/signup.component";
 
 const routes: Routes = [
   {
-    path: '', component: SignupComponent
-  },
-  {
     path: 'signup', component: SignupComponent
   },
-  {
-    path: 'login', component: LoginComponent
-  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule, LoginComponent, ]
+  exports: [RouterModule, routes]
 })
 export class AccountRoutingModule { }

@@ -7,19 +7,23 @@ import { AppComponent } from './app.component';
 import {AccountModule} from './accountModule/account.module';
 import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NavbarComponent } from './welcome/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    ErrorComponent, // esto es para no tener que hacer una lista de componentes
+    ErrorComponent,
+    NavbarComponent, // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule
+  ],
+  exports: [
+    NavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

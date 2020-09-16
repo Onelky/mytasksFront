@@ -86,4 +86,22 @@ body {
 .dropdown{
   position: relative;
 }
+
+@media (max-width: 765px) {
+  .login-card .card-body {
+    padding: 100px 80px;
+  }
+
+  .login-card-img {
+
+    display: none;
+  }
+
+  @media (min-width: 765px) {
+    .login-card .card-body {
+      padding: 100px 80px;
+
+    }
+  }
+}
 /*# sourceMappingURL=login.css.map */
