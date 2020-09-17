@@ -33,3 +33,5 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
   bootstrap: [SignupComponent]
 })
 export class AccountModule { }
+export * from './account.module'; // <==== THAT WAS MISSING
+

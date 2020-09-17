@@ -7,6 +7,8 @@ import {ErrorComponent} from './error/error.component';
 import {SignupComponent} from './accountModule/signup/signup.component';
 import {LoginComponent} from './accountModule/login/login.component';
 import {ForgotPasswordComponent} from './accountModule/forgot-password/forgot-password.component';
+import { CommonModule } from '@angular/common';
+import {AccountModule} from './accountModule/account.module';
 
 const routes: Routes = [
 
@@ -45,7 +47,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    CommonModule],
+
   exports: []
 })
 export class AppRoutingModule { }

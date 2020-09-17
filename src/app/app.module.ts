@@ -8,6 +8,8 @@ import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './welcome/navbar/navbar.component';
 import {RouterModule} from '@angular/router';
+import { CommonModule } from '@angular/common';
+import {AccountModule} from './accountModule/account.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {RouterModule} from '@angular/router';
         BrowserModule,
         AppRoutingModule,
         NgbModule,
-        RouterModule
+        RouterModule,
+        CommonModule
     ],
   exports: [
     NavbarComponent
@@ -30,3 +33,5 @@ import {RouterModule} from '@angular/router';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export * from './app.module'; // <==== THAT WAS MISSING
+

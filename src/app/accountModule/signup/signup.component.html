@@ -97,7 +97,6 @@
               </div>
 
               <input type="submit"
-                     [ngClass]="{'login-btn':  f.valid && passwordConf.value == password.value}"
                      [disabled]="f.invalid && passwordConf.value == password.value"  name="login" id="login"
                      class="btn btn-block login-btn-disabled mb-4"
                      value="Login">
