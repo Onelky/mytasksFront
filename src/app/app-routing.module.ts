@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AppComponent} from './app.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {HomeComponent} from './home/home.component';
 import {AccountComponent} from './accountModule/account.component';
 import {ErrorComponent} from './error/error.component';
-import {SignupComponent} from "./accountModule/signup/signup.component";
-import {LoginComponent} from "./accountModule/login/login.component";
-import {ForgotPasswordComponent} from "./accountModule/forgot-password/forgot-password.component";
+import {SignupComponent} from './accountModule/signup/signup.component';
+import {LoginComponent} from './accountModule/login/login.component';
+import {ForgotPasswordComponent} from './accountModule/forgot-password/forgot-password.component';
 
 const routes: Routes = [
 
@@ -47,7 +46,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: []
 })
 export class AppRoutingModule { }
 export const  routingComponents = [WelcomeComponent];
