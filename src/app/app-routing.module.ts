@@ -7,6 +7,7 @@ import {AccountComponent} from './accountModule/account.component';
 import {ErrorComponent} from './error/error.component';
 import {SignupComponent} from "./accountModule/signup/signup.component";
 import {LoginComponent} from "./accountModule/login/login.component";
+import {ForgotPasswordComponent} from "./accountModule/forgot-password/forgot-password.component";
 
 const routes: Routes = [
 
@@ -31,6 +32,9 @@ const routes: Routes = [
       {
         path: 'signup', component: SignupComponent
       },
+      {
+        path: 'forgotpassword', component: ForgotPasswordComponent
+      }
 
     ]
   },

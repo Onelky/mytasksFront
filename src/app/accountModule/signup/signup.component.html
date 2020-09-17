@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/forms.css">
+
 </head>
 <body>
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
@@ -20,45 +22,90 @@
         <div class="col-md-7">
           <div class="card-body">
             <p class="login-card-description">Sign into your account</p>
-            <form action="#!">
+            <form  #f = "ngForm" (ngSubmit)="onSubmit(f)" action="#!">
               <div class="form-group">
-                <label for="name" class="sr-only">Name</label>
-                <input type="email" name="email" id="name" class="form-control" placeholder="Full name">
-              </div>
+                <label for="fullname" class="sr-only">Fullname</label>
+                <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Full name"
+                ngModel
+                required
+                #fullname = "ngModel">
 
-              <div class="form-group">
-                <label for="username" class="sr-only">username</label>
-                <input type="email" name="email" id="username" class="form-control" placeholder="Username">
-              </div>
-
-              <div class = "form-group">
-
-
+                <div [hidden]="fullname.valid || fullname.pristine"
+                     class="alert alert-danger ">
+                  Full name is required
+                </div>
 
               </div>
-
-
 
               <div class="form-group">
-                <label for="email" class="sr-only">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Username"
+                       ngModel
+                       required
+                       #username = "ngModel">
+
+                <div [hidden]="username.valid || username.pristine"
+                     class="alert alert-danger ">
+                   Username is required
+                </div>
+
               </div>
 
-              <div class="form-group mb-4">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-              </div>
-              <div class="form-group mb-4">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" name="password" id="confirmpassword" class="form-control" placeholder="Confirm password">
+              <div class="form-group">
+                <label for="email" class="sr-only">email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email address"
+                       ngModel
+                       required
+                       #email = "ngModel">
+
+                <div [hidden]="email.valid || email.pristine"
+                     class="alert alert-danger ">
+                  Email address is required
+                </div>
+
               </div>
 
-              <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+              <div class="form-group">
+                <label for="password" class="sr-only">password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                       ngModel
+                       required
+                       #password = "ngModel">
+
+                <div [hidden]="password.valid || password.pristine"
+                     class="alert alert-danger ">
+                  Password is required
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="passwordConf" class="sr-only">passwordConf</label>
+                <input type="password" name="passwordConf" id="passwordConf" class="form-control" placeholder="Confirm password"
+                       ngModel
+                       required
+                       #passwordConf = "ngModel">
+
+                <div [hidden]="passwordConf.valid || passwordConf.pristine"
+                     class="alert alert-danger ">
+                  Password confirmation is required
+                </div>
+                <div [hidden]="passwordConf.value == password.value"
+                     class="alert alert-danger ">
+                  Password confirmation should be equal to password
+                </div>
+              </div>
+
+              <input type="submit"
+                     [ngClass]="{'login-btn':  f.valid && passwordConf.value == password.value}"
+                     [disabled]="f.invalid && passwordConf.value == password.value"  name="login" id="login"
+                     class="btn btn-block login-btn-disabled mb-4"
+                     value="Login">
+
             </form>
-            <a href="#!" class="forgot-password-link">Forgot password?</a>
             <p class="login-card-footer-text">Already have an account? <a class="text-reset" href="account">Log in here</a></p>
             <nav class="login-card-footer-nav">
-              <a href="#!">Terms of use.</a>
+              <a href="#!">Terms of use.   </a>
               <a href="#!">Privacy policy</a>
             </nav>
 

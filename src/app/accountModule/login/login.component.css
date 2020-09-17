@@ -35,7 +35,7 @@ body {
 .login-card form {
   max-width: 326px; }
 .login-card .form-control {
-  border: 1px solid #d5dae2;
+  border: 1px transparent #d5dae2;
   padding: 15px 25px;
   margin-bottom: 20px;
   min-height: 45px;
@@ -47,11 +47,20 @@ body {
 .login-card .form-control::-moz-placeholder {
   color: #919aa3; }
 .login-card .form-control:-ms-input-placeholder {
-  color: #919aa3; }
+  color: #1e7e34; }
 .login-card .form-control::-ms-input-placeholder {
   color: #919aa3; }
 .login-card .form-control::placeholder {
   color: #919aa3; }
+.login-card .login-btn-disabled {
+  padding: 13px 20px 12px;
+  background-color: #000;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 24px; }
 .login-card .login-btn {
   padding: 13px 20px 12px;
   background-color: #000;
@@ -73,6 +82,8 @@ body {
   font-size: 16px;
   color: #0d2366;
   margin-bottom: 60px; }
+
+
 @media (max-width: 767px) {
   .login-card-footer-text {
     margin-bottom: 24px; } }

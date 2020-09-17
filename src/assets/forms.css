@@ -1,0 +1,17 @@
+
+input:required:focus:valid {
+  border-left: 5px solid #42A948; /* green */
+}
+input:required:invalid:focus {
+  border-left: 5px solid #a94442; /* red */
+}
+input:required:valid {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.alert-danger{
+  font-size: 10px;
+  margin-top: 0px;
+  color: #a94442;
+  background: transparent;
+}
