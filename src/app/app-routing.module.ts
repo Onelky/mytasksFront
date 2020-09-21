@@ -9,6 +9,7 @@ import {LoginComponent} from './accountModule/login/login.component';
 import {ForgotPasswordComponent} from './accountModule/forgot-password/forgot-password.component';
 import { CommonModule } from '@angular/common';
 import {AccountModule} from './accountModule/account.module';
+import {TaskComponent} from './home/task/task.component'
 
 const routes: Routes = [
 
@@ -20,7 +21,19 @@ const routes: Routes = [
   },
 
   {
-    path: 'home', component: HomeComponent
+    path: 'home', component: HomeComponent,
+
+    children: [
+
+      {
+        path : 'task', component: TaskComponent
+
+      }
+
+    ]
+
+
+
   },
   {
     path: 'account', component: AccountComponent,
@@ -35,7 +48,11 @@ const routes: Routes = [
       },
       {
         path: 'forgotpassword', component: ForgotPasswordComponent
-      }
+      },
+
+
+
+
 
     ]
   },
