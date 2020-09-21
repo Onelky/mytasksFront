@@ -16,7 +16,8 @@ import {AccountModule} from './accountModule/account.module';
     AppComponent,
     routingComponents,
     ErrorComponent,
-    NavbarComponent, // esto es para no tener que hacer una lista de componentes
+    NavbarComponent,
+     // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
   ],
     imports: [

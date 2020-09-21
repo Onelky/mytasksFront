@@ -5,11 +5,15 @@ import { ClockComponent } from './clock/clock.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskComponent } from './task/task.component';
 import {AppRoutingModule} from '../app-routing.module';
-import {HomeRoutingModule} from "./home-routing.module";
-import {HomeComponent} from "./home.component";
+import {HomeRoutingModule} from './home-routing.module';
+import {HomeComponent} from './home.component';
 
 @NgModule({
-  declarations: [SideBarComponent, ClockComponent, TasksComponent, TaskComponent]
+  declarations: [SideBarComponent,
+    ClockComponent,
+    HomeComponent,
+    TasksComponent,
+    TaskComponent]
   ,
   imports: [
     BrowserModule,

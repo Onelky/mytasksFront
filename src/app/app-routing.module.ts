@@ -9,7 +9,8 @@ import {LoginComponent} from './accountModule/login/login.component';
 import {ForgotPasswordComponent} from './accountModule/forgot-password/forgot-password.component';
 import { CommonModule } from '@angular/common';
 import {AccountModule} from './accountModule/account.module';
-import {TaskComponent} from './home/task/task.component'
+import {TaskComponent} from './home/task/task.component';
+import {HomeModule} from './home/home.module';
 
 const routes: Routes = [
 
@@ -18,22 +19,6 @@ const routes: Routes = [
   },
   {
     path: 'welcome', component: WelcomeComponent
-  },
-
-  {
-    path: 'home', component: HomeComponent,
-
-    children: [
-
-      {
-        path : 'task', component: TaskComponent
-
-      }
-
-    ]
-
-
-
   },
   {
     path: 'account', component: AccountComponent,
@@ -49,6 +34,9 @@ const routes: Routes = [
       {
         path: 'forgotpassword', component: ForgotPasswordComponent
       },
+      {
+        path: 'home', component: HomeComponent,
+      }
 
 
 

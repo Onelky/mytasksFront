@@ -53,7 +53,8 @@
                 </div>
               </div>
 
-              <input type="submit" [ngClass]="{'login-btn':  f.valid}" [disabled]="f.invalid"  name="login" id="login"
+              <input type="submit" [ngClass]="{'login-btn':  f.valid}" [disabled]="f.invalid"
+                     routerLink="home" name="login" id="login"
                      class="btn btn-block login-btn-disabled mb-4"
                       value="Login">
 
