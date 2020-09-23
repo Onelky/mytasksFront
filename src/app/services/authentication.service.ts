@@ -15,22 +15,22 @@ export class AuthenticationService {
   value: any;
 
   constructor(private http: HttpClient) {
-    const headerSettings: {[name: string]: string | string[]; } = {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+    const headerSettings = {
+      'Content-Type': 'application/json; charset=utf-8',
     };
-    this.header = new HttpHeaders(headerSettings);
+    this.header = {
+      headers: new HttpHeaders(headerSettings)};
   }
   // tslint:disable-next-line:typedef
   login(model?: any)
   {
     // return this.http.post(this.apiUrl + 'login', model).pipe();
-    return this.http.post(this.apiUrl + 'login', model).pipe(
+    return this.http.post(this.apiUrl + 'login', model, this.header).pipe(
       map((response: any) => {
         const user = response;
-        localStorage.setItem('token', user.token);
+        if (user){
+          localStorage.setItem('token', user.token);
+        }
   })
     );
   }

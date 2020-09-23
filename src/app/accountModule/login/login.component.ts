@@ -16,19 +16,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm) {
+  login(form: NgForm) {
     // Con este metodo se tendra acceso a los
     // datos introducidos por el usuario
-
-    const loginObservable = of(1, 2, 3);
-    const myObserver = {
-      next: x => console.log('User logged in ' + x),
-      error: err => console.error(' error: ' + err),
-    };
-
-    console.log(f.value);
-    console.log(f.valid);
-    this.service.login(f.value).subscribe();
-
+    const jsonForm = JSON.stringify(form.value);
+    console.log(jsonForm);
+    this.service.login(jsonForm).subscribe(next =>{
+      console.log('SUCCESSS');
+    }, error => {
+      console.log('Failed');
+    });
   }
 }

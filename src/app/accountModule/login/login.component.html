@@ -15,7 +15,7 @@
               <p></p>
             </div>
             <p class="login-card-description">Log into your account</p>
-            <form #f = "ngForm" (ngSubmit)="onSubmit(f)" action="#!">
+            <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)" action="#!">
               <div class="form-group">
                 <label for="loginUsername" class="sr-only">Username</label>
                 <input type="text" name="Username"
@@ -33,7 +33,9 @@
               <div class="form-group mb-4">
                 <label for="Password" class="sr-only">Password</label>
                 <input type="password"
-                       name="Password" ngModel required #Password ="ngModel"
+                       name="Password"
+                       ngModel
+                       required #Password ="ngModel"
                        id="password" class="form-control ng-valid" placeholder="Password">
 
                 <div [hidden]="Password.valid || Password.pristine"
@@ -42,10 +44,10 @@
                 </div>
               </div>
 
-              <input type="submit" [ngClass]="{'login-btn':  f.valid}" [disabled]="f.invalid"
+              <input type="submit" [ngClass]="{'login-btn':  loginForm.valid, 'login-btn-disabled': loginForm.invalid}" [disabled]="loginForm.invalid"
                      name="login" id="login"
                      class="btn btn-block login-btn-disabled mb-4"
-                      value="Login">
+                     value="Login">
 
             </form>
 
