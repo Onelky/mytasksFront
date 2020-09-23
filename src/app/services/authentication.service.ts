@@ -33,6 +33,11 @@ export class AuthenticationService {
         }
     }));
   }
+  // tslint:disable-next-line:typedef
+  loggedIn(){
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
   register(model?: any)
   {
     return this.http.post(this.apiUrl + 'register', JSON.stringify(model), this.header).pipe();

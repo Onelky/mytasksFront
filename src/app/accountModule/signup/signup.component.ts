@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { NgForm} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
@@ -8,12 +8,13 @@ import {AuthenticationService} from '../../services/authentication.service';
   styleUrls: ['../login/login.component.css'] // Utiliza el mismo css que el componente login
 })
 export class SignupComponent implements OnInit {
-
   constructor(private authService: AuthenticationService) { }
-
   ngOnInit(): void {
   }
+
   register(registerForm: NgForm){
+
+
     const registerObserver = {
       next: x => {console.log('SUCCESSS'); },
       error: err => { console.log('Failed'); }
