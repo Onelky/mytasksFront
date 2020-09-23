@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
   <div class="container">
     <div class="card login-card">
       <div class="row no-gutters">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <img src="../../../assets/images/girl.jpg" alt="login" class="login-card-img">
         </div>
-        <div class="col-md-7">
+
+        <div class="col-md-5">
           <div class="card-body">
             <p class="login-card-description">Sign into your account</p>
             <form #regForm = "ngForm" (ngSubmit)="register(regForm)" action="#!">

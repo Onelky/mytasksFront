@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentication.service';
-import {of} from "rxjs";
+import {of} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,7 @@ import {of} from "rxjs";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private service: AuthenticationService) {
+  constructor(private router: Router, private service: AuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -22,9 +22,12 @@ export class LoginComponent implements OnInit {
     const jsonForm = JSON.stringify(form.value);
 
     const loginObserver = {
-      next: x => {console.log('SUCCESSS'); },
+      next: x => {console.log('SUCCESSS');
+                  this.router.navigate(['account/home']);
+                  },
       error: err => { console.log('Failed'); }
     };
+
     this.service.login(jsonForm).subscribe(loginObserver);
   }
   loggedIn(){

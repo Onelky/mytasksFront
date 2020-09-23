@@ -3,6 +3,34 @@ body {
   background-color: #d0d0ce;
   min-height: 100vh; }
 
+.material-icons {
+  display: inline-flex;
+  vertical-align: middle;
+}
+p {
+  font-family: Lato;
+}
+
+
+input:required:focus:valid {
+  border-left: 5px solid #42A948; /* green */
+}
+input:required:invalid:focus {
+  border-left: 5px solid #a94442; /* red */
+}
+input:required:valid {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.alert-danger{
+  font-size: 10px;
+  margin-top: 0px;
+  color: #a94442;
+  background: transparent;
+}
+
+
+
 .brand-wrapper {
   margin-bottom: 19px; }
 .brand-wrapper .logo {

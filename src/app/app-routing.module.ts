@@ -35,12 +35,8 @@ const routes: Routes = [
         path: 'forgotpassword', component: ForgotPasswordComponent
       },
       {
-        path: 'home', component: HomeComponent,
+        path: 'home', component: HomeComponent
       }
-
-
-
-
 
     ]
   },
