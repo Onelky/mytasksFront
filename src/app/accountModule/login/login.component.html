@@ -15,13 +15,12 @@
               <p></p>
             </div>
             <p class="login-card-description">Log into your account</p>
+
+
             <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)" action="#!">
               <div class="form-group">
                 <label for="loginUsername" class="sr-only">Username</label>
-                <input type="text" name="Username"
-                       ngModel
-                       required
-                       #Username="ngModel"
+                <input type="text" name="Username" ngModel required #Username="ngModel"
                        id="loginUsername"
                        class="form-control" placeholder="Username">
                 <div [hidden]="Username.valid || Username.pristine"
@@ -44,7 +43,8 @@
                 </div>
               </div>
 
-              <input type="submit" [ngClass]="{'login-btn':  loginForm.valid, 'login-btn-disabled': loginForm.invalid}" [disabled]="loginForm.invalid"
+              <input type="submit" [ngClass]="{'login-btn':  loginForm.valid, 'login-btn-disabled': loginForm.invalid}"
+                     [disabled]="loginForm.invalid"
                      name="login" id="login"
                      class="btn btn-block login-btn-disabled mb-4"
                      value="Login">

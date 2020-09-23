@@ -31,7 +31,10 @@ export class AuthenticationService {
         if (user){
           localStorage.setItem('token', user.token);
         }
-  })
-    );
+    }));
+  }
+  register(model?: any)
+  {
+    return this.http.post(this.apiUrl + 'register', JSON.stringify(model), this.header).pipe();
   }
 }

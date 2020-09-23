@@ -20,11 +20,20 @@ export class LoginComponent implements OnInit {
     // Con este metodo se tendra acceso a los
     // datos introducidos por el usuario
     const jsonForm = JSON.stringify(form.value);
-    console.log(jsonForm);
-    this.service.login(jsonForm).subscribe(next =>{
-      console.log('SUCCESSS');
-    }, error => {
-      console.log('Failed');
-    });
+
+    const loginObserver = {
+      next: x => {console.log('SUCCESSS'); },
+      error: err => { console.log('Failed'); }
+    };
+    this.service.login(jsonForm).subscribe(loginObserver);
   }
+  loggedIn(){
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+  logout(){
+    localStorage.removeItem('token');
+    console.log('logged out');
+  }
+
 }
