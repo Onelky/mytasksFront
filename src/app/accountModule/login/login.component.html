@@ -1,21 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login Template</title>
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/forms.css">
-
-</head>
 <body>
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
   <div class="container">
     <router-outlet></router-outlet>
-    <div class="card login-card">
+    <div *ngIf="!loggedIn()" class="card login-card">
       <div class="row no-gutters">
         <div class="col-md-6">
           <img src="../../../assets/images/guy.png" alt="login" class="login-card-img">
@@ -26,37 +15,39 @@
               <p></p>
             </div>
             <p class="login-card-description">Log into your account</p>
-            <form #f = "ngForm" (ngSubmit)="onSubmit(f)" action="#!">
+
+
+            <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)" action="#!">
               <div class="form-group">
                 <label for="loginUsername" class="sr-only">Username</label>
-                <input type="text" name="username"
-                       ngModel
-                       required
-                       #username="ngModel"
+                <input type="text" name="Username" ngModel required #Username="ngModel"
                        id="loginUsername"
                        class="form-control" placeholder="Username">
-                <div [hidden]="username.valid || username.pristine"
+                <div [hidden]="Username.valid || Username.pristine"
                      class="alert alert-danger ">
                   Username is required
                 </div>
 
               </div>
               <div class="form-group mb-4">
-                <label for="password" class="sr-only">Password</label>
+                <label for="Password" class="sr-only">Password</label>
                 <input type="password"
-                       name="password" ngModel required #password ="ngModel"
+                       name="Password"
+                       ngModel
+                       required #Password ="ngModel"
                        id="password" class="form-control ng-valid" placeholder="Password">
 
-                <div [hidden]="password.valid || password.pristine"
+                <div [hidden]="Password.valid || Password.pristine"
                      class="alert alert-danger col-md-3 ">
                   Password is required
                 </div>
               </div>
 
-              <input type="submit" [ngClass]="{'login-btn':  f.valid}" [disabled]="f.invalid"
-                     routerLink="home" name="login" id="login"
+              <input type="submit" [ngClass]="{'login-btn':  loginForm.valid, 'login-btn-disabled': loginForm.invalid}"
+                     [disabled]="loginForm.invalid"
+                     name="login" id="login"
                      class="btn btn-block login-btn-disabled mb-4"
-                      value="Login">
+                     value="Login" *ngIf="!loggedIn() " >
 
             </form>
 

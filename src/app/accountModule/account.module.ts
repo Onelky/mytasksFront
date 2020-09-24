@@ -6,7 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import {RouterModule} from '@angular/router';
 import {AccountRoutingModule} from './account-routing.module';
 import {AppModule} from '../app.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
@@ -18,13 +18,15 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ForgotPasswordComponent,
 
   ],
-  imports: [
-    AccountRoutingModule,
-    CommonModule,
-    RouterModule,
-    AppModule,
-    FormsModule // se importa este modulo de formulario
-  ],
+    imports: [
+        AccountRoutingModule,
+        CommonModule,
+        RouterModule,
+        AppModule,
+        FormsModule,
+        ReactiveFormsModule,
+        // se importa este modulo de formulario
+    ],
   exports: [
     AccountComponent,
     LoginComponent,

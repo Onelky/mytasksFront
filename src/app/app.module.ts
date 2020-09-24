@@ -10,12 +10,7 @@ import { NavbarComponent } from './welcome/navbar/navbar.component';
 import {RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {AccountModule} from './accountModule/account.module';
-//import { ConfigurationComponent } from './home/configuration/configuration.component';
-//import { TagsComponent } from './home/tags/tags.component';
-//import { RecycleBinComponent } from './home/recycle-bin/recycle-bin.component';
-//import { ConfigurationComponent } from './home/configuration/configuration.component';
-//import { SideBarComponent } from './home/side-bar/side-bar.component';
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,8 +32,8 @@ import {AccountModule} from './accountModule/account.module';
         AppRoutingModule,
         NgbModule,
         RouterModule,
-        CommonModule
-
+        CommonModule,
+      HttpClientModule
     ],
   exports: [
     NavbarComponent,
