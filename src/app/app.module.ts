@@ -10,6 +10,12 @@ import { NavbarComponent } from './welcome/navbar/navbar.component';
 import {RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {AccountModule} from './accountModule/account.module';
+//import { ConfigurationComponent } from './home/configuration/configuration.component';
+//import { TagsComponent } from './home/tags/tags.component';
+//import { RecycleBinComponent } from './home/recycle-bin/recycle-bin.component';
+//import { ConfigurationComponent } from './home/configuration/configuration.component';
+//import { SideBarComponent } from './home/side-bar/side-bar.component';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +23,12 @@ import {AccountModule} from './accountModule/account.module';
     routingComponents,
     ErrorComponent,
     NavbarComponent,
+   // ConfigurationComponent,
+   // TagsComponent,
+   // RecycleBinComponent,
+    //ConfigurationComponent,
+    //SideBarComponent
+
      // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
   ],
@@ -26,9 +38,13 @@ import {AccountModule} from './accountModule/account.module';
         NgbModule,
         RouterModule,
         CommonModule
+
     ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+   // SideBarComponent
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
