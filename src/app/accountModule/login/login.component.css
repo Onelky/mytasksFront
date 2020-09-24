@@ -7,82 +7,71 @@ body {
   display: inline-flex;
   vertical-align: middle;
 }
+
 p {
   font-family: Lato;
 }
 
-
-input:required:focus:valid {
-  border-left: 5px solid #42A948; /* green */
-}
-input:required:invalid:focus {
-  border-left: 5px solid #a94442; /* red */
-}
-input:required:valid {
-  border-left: 5px solid #42A948; /* green */
+.invalid-feedback{
+  text-indent: 5px;
 }
 
-.alert-danger{
-  font-size: 10px;
-  margin-top: 0px;
-  color: #a94442;
-  background: transparent;
-}
-
-
-
-.brand-wrapper {
-  margin-bottom: 19px; }
-.brand-wrapper .logo {
-  height: 37px; }
 
 .login-card {
   border: 0;
   border-radius: 28px;
   box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
   overflow: hidden; }
+.login-card-img-girl{
+
+  width: 100%;
+  padding-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+
+}
+
 .login-card-img {
-  padding-top: 50px;
-  padding-right: 50px;
-  display: flex;
+  width: 120%;
+  padding-top: 80px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 50px;
   border-radius: 0;
   -o-object-fit: cover;
   object-fit: cover; }
 .login-card .card-body {
-  padding: 85px 60px 60px; }
+  background-color: rgba(255,255,255,0.2);;
+  padding: 90px 120px 10px;
+}
 @media (max-width: 422px) {
   .login-card .card-body {
     padding: 35px 24px; } }
+
 .login-card-description {
   font-size: 25px;
   color: #000;
   font-weight: normal;
   margin-bottom: 23px; }
+
 .login-card form {
   max-width: 326px; }
+
 .login-card .form-control {
-  border: 1px transparent #d5dae2;
+  border: 0.1px solid #d5dae2;
   padding: 15px 25px;
   margin-bottom: 20px;
   min-height: 45px;
   font-size: 13px;
   line-height: 15;
   font-weight: normal; }
-.login-card .form-control::-webkit-input-placeholder {
-  color: #919aa3; }
-.login-card .form-control::-moz-placeholder {
-  color: #919aa3; }
-.login-card .form-control:-ms-input-placeholder {
-  color: #1e7e34; }
-.login-card .form-control::-ms-input-placeholder {
-  color: #919aa3; }
-.login-card .form-control::placeholder {
-  color: #919aa3; }
+
+
 .login-card .login-btn-disabled {
   padding: 13px 20px 12px;
-  background-color: #000;
+  background-color: #06214d;
   border-radius: 4px;
   font-size: 17px;
   font-weight: bold;
@@ -91,17 +80,18 @@ input:required:valid {
   margin-bottom: 24px; }
 .login-card .login-btn {
   padding: 13px 20px 12px;
-  background-color: #000;
+  background-color: #06214d;
   border-radius: 4px;
   font-size: 17px;
   font-weight: bold;
   line-height: 20px;
   color: #fff;
   margin-bottom: 24px; }
+
 .login-card .login-btn:hover {
-  border: 1px solid #000;
+  border: 1px solid #06214d;
   background-color: transparent;
-  color: #000; }
+  color: #06214d; }
 .login-card .forgot-password-link {
   font-size: 14px;
   color: #919aa3;
@@ -116,7 +106,7 @@ input:required:valid {
   .login-card-footer-text {
     margin-bottom: 24px; } }
 .login-card-footer-nav a {
-  font-size: 14px;
+  font-size: 16px;
   color: #919aa3; }
 
 @media (max-width: 765px) {
@@ -128,6 +118,11 @@ input:required:valid {
 
     display: none;
   }
+  .login-card-img-girl{
+    display: none;
+  }
+}
+
 
   @media (min-width: 765px) {
     .login-card .card-body {
@@ -135,6 +130,6 @@ input:required:valid {
 
     }
   }
-}
+
 
 /*# sourceMappingURL=login.css.map */

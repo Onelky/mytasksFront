@@ -4,55 +4,66 @@
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
   <div class="container">
     <router-outlet></router-outlet>
-    <div *ngIf="!loggedIn()" class="card login-card">
+    <div class="card login-card">
       <div class="row no-gutters">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <img src="../../../assets/images/guy.png" alt="login" class="login-card-img">
         </div>
-        <div class="col-md-5">
+        <div class="col-md-7">
           <div class="card-body">
             <div class="brand-wrapper">
-              <p></p>
             </div>
             <p class="login-card-description">Log into your account</p>
 
+            <form [formGroup]="loginForm" (ngSubmit)="login()" >
 
-            <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)" action="#!">
               <div class="form-group">
-                <label for="loginUsername" class="sr-only">Username</label>
-                <input type="text" name="Username" ngModel required #Username="ngModel"
-                       id="loginUsername"
-                       class="form-control" placeholder="Username">
-                <div [hidden]="Username.valid || Username.pristine"
-                     class="alert alert-danger ">
-                  Username is required
-                </div>
+                <label class="sr-only">Username</label>
+                <input type="text" formControlName="Username"
+                       class="form-control" placeholder="Username"
+                       [ngClass]="{'is-invalid': loginForm.get('Username').errors
+                       && loginForm.get('Username').touched }">
+
+                <div class="invalid-feedback" *ngIf="loginForm.get('Username').hasError('required')
+                       && loginForm.get('Username').touched"> Username is required. </div>
+
+                <div class="invalid-feedback" *ngIf="loginForm.get('Username').hasError('maxlength')
+                       && loginForm.get('Username').touched"> Username cannot exceed 20 characters. </div>
 
               </div>
-              <div class="form-group mb-4">
-                <label for="Password" class="sr-only">Password</label>
-                <input type="password"
-                       name="Password"
-                       ngModel
-                       required #Password ="ngModel"
-                       id="password" class="form-control ng-valid" placeholder="Password">
 
-                <div [hidden]="Password.valid || Password.pristine"
-                     class="alert alert-danger col-md-3 ">
-                  Password is required
-                </div>
+
+              <div class="form-group">
+                <label class="sr-only">Password</label>
+                <input type="password" formControlName="Password"
+                       class="form-control" placeholder="Password"
+                       [ngClass]="{'is-invalid': loginForm.get('Password').errors
+                       && loginForm.get('Password').touched }">
+
+                <div class="invalid-feedback" *ngIf="loginForm.get('Password').hasError('required')
+                       && loginForm.get('Password').touched"> Password is required. </div>
+
+                <div class="invalid-feedback" *ngIf="loginForm.get('Password').hasError('minlength')
+                       && loginForm.get('Password').touched"> Password must be at least 8 characters. </div>
+
+                <div class="invalid-feedback" *ngIf="loginForm.get('Password').hasError('maxlength')
+                       && loginForm.get('Password').touched"> Password cannot exceed 12 characters. </div>
+
               </div>
-
               <input type="submit" [ngClass]="{'login-btn':  loginForm.valid, 'login-btn-disabled': loginForm.invalid}"
-                     [disabled]="loginForm.invalid"
-                     name="login" id="login"
+                     [disabled]="loginForm.invalid" name="signup"
                      class="btn btn-block login-btn-disabled mb-4"
-                     value="Login" *ngIf="!loggedIn() " >
+                     value="Log in" >
+
+              <div class="alert alert-dismissible alert-danger" *ngIf="showMessage == false"> Incorrect username or password. Try again. </div>
+
+
 
             </form>
 
+
             <a href="#!" class="forgot-password-link" routerLink="forgotpassword">Forgot password?</a>
-            <p class="login-card-footer-text">Don't have an account? <a routerLink="signup" class="text-reset">Register here</a></p>
+            <p class="login-card-footer-text">Don't have an account? <a routerLink="/account/register" class="text-reset">Register here</a></p>
             <nav class="login-card-footer-nav">
               <a href="#!">Terms of use.</a>
               <a href="#!">Privacy policy</a>

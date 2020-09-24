@@ -4,7 +4,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {HomeComponent} from './home/home.component';
 import {AccountComponent} from './accountModule/account.component';
 import {ErrorComponent} from './error/error.component';
-import {SignupComponent} from './accountModule/signup/signup.component';
+import {RegisterComponent} from './accountModule/register/register.component';
 import {LoginComponent} from './accountModule/login/login.component';
 import {ForgotPasswordComponent} from './accountModule/forgot-password/forgot-password.component';
 import { CommonModule } from '@angular/common';
@@ -29,7 +29,7 @@ const routes: Routes = [
         path: '', component: LoginComponent
       },
       {
-        path: 'signup', component: SignupComponent
+        path: 'register', component: RegisterComponent
       },
       {
         path: 'forgotpassword', component: ForgotPasswordComponent

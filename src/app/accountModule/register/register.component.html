@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+  <div class="container">
+    <div class="card login-card">
+      <div class="row no-gutters">
+        <div class="col-md-5">
+          <img src="../../../assets/images/girl.jpg" alt="login" class="login-card-img-girl">
+        </div>
+
+        <div class="col-md-7">
+          <div class="card-body">
+            <p class="login-card-description">Sign into your account</p>
+            <form [formGroup]="registerForm" (ngSubmit)="register()" >
+
+              <div class="form-group ">
+                <label class="sr-only">Fullname</label>
+                <input type="text"
+                       formControlName="Fullname" class="form-control is-invalid"
+                       placeholder="Full name"
+                       [ngClass]="{'is-invalid': registerForm.get('Fullname').errors
+                       && registerForm.get('Fullname').touched }">
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Fullname').hasError('required')
+                       && registerForm.get('Fullname').touched"> Fullname is required. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Fullname').hasError('maxlength')
+                       && registerForm.get('Fullname').touched"> Fullname cannot exceed 20 characters. </div>
+
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Username</label>
+                <input type="text" formControlName="Username"
+                       class="form-control" placeholder="Username"
+                       [ngClass]="{'is-invalid': registerForm.get('Username').errors
+                       && registerForm.get('Username').touched }">
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Username').hasError('required')
+                       && registerForm.get('Username').touched"> Username is required. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Username').hasError('maxlength')
+                       && registerForm.get('Username').touched"> Username cannot exceed 20 characters. </div>
+
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Email</label>
+                <input type="email" formControlName="Email" class="form-control is-invalid"
+                       placeholder="Email" [ngClass]="{'is-invalid': registerForm.get('Email').errors
+                       && registerForm.get('Email').touched }">
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Email').hasError('required')
+                       && registerForm.get('Email').touched"> Email address is required. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Email').hasError('email')
+                       && registerForm.get('Email').touched"> Please enter a valid email address. </div>
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Password</label>
+                <input type="password" formControlName="Password"
+                       class="form-control" placeholder="Password"
+                       [ngClass]="{'is-invalid': registerForm.get('Password').errors
+                       && registerForm.get('Password').touched }">
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('required')
+                       && registerForm.get('Password').touched"> Password is required. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('minlength')
+                       && registerForm.get('Password').touched"> Password must be at least 8 characters. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('maxlength')
+                       && registerForm.get('Password').touched"> Password cannot exceed 12 characters. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('hasNumber')
+                       && registerForm.get('Password').touched">Password must have a number. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('hasSmallCase')
+                       && registerForm.get('Password').touched">Password must have a small letter. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('hasCapitalCase')
+                       && registerForm.get('Password').touched">Password must have a capital letter. </div>
+
+                <div class="invalid-feedback" *ngIf="registerForm.get('Password').hasError('hasSpecialCharacters')
+                       && registerForm.get('Password').touched">Password must have at least one special character. </div>
+
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">ConfirmPassword</label>
+                <input type="password" formControlName="ConfirmPassword"
+                       class="form-control" placeholder="Confirm password"
+                       [ngClass]="{'is-invalid': registerForm.get('ConfirmPassword').errors
+                       && registerForm.get('ConfirmPassword').touched
+                       || registerForm.get('ConfirmPassword').touched
+                       && registerForm.hasError('mismatch')}">
+
+                <div class="invalid-feedback"
+                     *ngIf="registerForm.get('ConfirmPassword').hasError('required')
+                       && registerForm.get('ConfirmPassword').touched"> Confirm password is required. </div>
+
+                <div class="invalid-feedback"
+                     *ngIf="registerForm.hasError('mismatch')
+                       && registerForm.get('ConfirmPassword').touched"> Passwords must match. </div>
+
+              </div>
+
+              <div class="alert alert-dismissible alert-success" *ngIf="showMessage == true"> Registration successful. </div>
+              <div class="alert alert-dismissible alert-danger" *ngIf="showMessage == false"> Registration could not be completed. </div>
+
+              <input type="submit" [ngClass]="{'login-btn':  registerForm.valid, 'login-btn-disabled': registerForm.invalid}"
+                     [disabled]="registerForm.invalid" name="signup"
+                     class="btn btn-block login-btn-disabled mb-4"
+                     value="Sign up">
+
+              <div class="row"  *ngIf="showMessage">
+                <div class="col-xs-12">
+                  <p class="alert alert-success">
+                    <strong>Registration Success!</strong> Please click here to login!.
+                  </p>
+                </div>
+              </div>
+
+
+            </form>
+
+            <p class="login-card-footer-text">Already have an account? <a class="text-reset" routerLink="/account">Log in here</a></p>
+            <nav class="login-card-footer-nav">
+              <a href="#!">Terms of use.     </a>
+              <a href="#!">Privacy policy</a>
+            </nav>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -11,6 +11,10 @@ import {RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {AccountModule} from './accountModule/account.module';
 import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import {HttpClientModule} from '@angular/common/http';
         NgbModule,
         RouterModule,
         CommonModule,
-      HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatButtonModule
     ],
   exports: [
     NavbarComponent
