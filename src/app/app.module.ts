@@ -22,6 +22,12 @@ import {MatButtonModule} from '@angular/material/button';
     routingComponents,
     ErrorComponent,
     NavbarComponent,
+   // ConfigurationComponent,
+   // TagsComponent,
+   // RecycleBinComponent,
+    //ConfigurationComponent,
+    //SideBarComponent
+
      // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
   ],
@@ -38,7 +44,10 @@ import {MatButtonModule} from '@angular/material/button';
         MatButtonModule
     ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+   // SideBarComponent
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
