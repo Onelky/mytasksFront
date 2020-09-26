@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
         this.patternValidator(/\d/, { hasNumber: true }),
         this.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
         this.patternValidator(/[a-z]/, { hasSmallCase: true }),
-      this.patternValidator(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/, { hasSpecialCharacters: true }),
+        this.patternValidator(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/, { hasSpecialCharacters: true }),
 
       ]],
       ConfirmPassword: ['', Validators.required]
@@ -67,17 +67,17 @@ export class RegisterComponent implements OnInit {
   register() {
 
     if (this.registerForm.valid){
-    const registerObserver = {
-      next: x => {console.log('SUCCESSS');
-                  this.router.navigate(['/account']);
-                  this.showMessage = true;
-      },
-      error: err => { console.log('Failed');
-                      this.showMessage = false; }
-    };
-    console.log(this.registerForm.value);
-    this.authService.register(this.registerForm.value).subscribe(registerObserver);
-  }
-
+      const registerObserver = {
+        next: x => {console.log('SUCCESSS');
+          this.router.navigate(['/account']);
+          this.showMessage = true;
+        },
+        error: err => { console.log('Failed');
+          this.showMessage = false; }
+      };
+      console.log(this.registerForm.value);
+      this.authService.register(this.registerForm.value).subscribe(registerObserver);
     }
+
+  }
 }

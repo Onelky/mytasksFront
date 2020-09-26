@@ -9,14 +9,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  router: string;
   showMessage = null;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router,
+  constructor(private fb: FormBuilder, private _router: Router,
               private service: AuthenticationService) {
   }
 
   ngOnInit(): void {
+    if (this.loggedIn()){
+      this.router = '/account/home';
+      this.router = this._router.url  ;
+      this._router.navigate(['/account/home']);
+      this.router = this._router.url;
+    }
     this.createLoginForm();
   }
 
@@ -38,7 +45,7 @@ export class LoginComponent implements OnInit {
       const loginObserver = {
         next: x => {
           console.log('SUCCESSS');
-          this.router.navigate(['account/home']);
+          this._router.navigate(['account/home']);
           this.showMessage = true;
         },
         error: err => {

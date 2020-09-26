@@ -11,6 +11,10 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import{TagsComponent} from './tags/tags.component'
 import{RecycleBinComponent} from './recycle-bin/recycle-bin.component'
 import{ConfigurationComponent} from './configuration/configuration.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {MatLineModule} from "@angular/material/core";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import{ConfigurationComponent} from './configuration/configuration.component';
   ,
   imports: [
     BrowserModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatLineModule,
+    MatListModule
 
 
   ],

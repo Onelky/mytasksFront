@@ -8,6 +8,8 @@ import {AccountRoutingModule} from './account-routing.module';
 import {AppModule} from '../app.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -17,16 +19,18 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ForgotPasswordComponent,
 
   ],
-    imports: [
-        AccountRoutingModule,
-        CommonModule,
-        RouterModule,
-        AppModule,
-        FormsModule,
-        ReactiveFormsModule,
+  imports: [
+    AccountRoutingModule,
+    CommonModule,
+    RouterModule,
+    AppModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
 
-        // se importa este modulo de formulario
-    ],
+    // se importa este modulo de formulario
+  ],
   exports: [
     AccountComponent,
     LoginComponent,

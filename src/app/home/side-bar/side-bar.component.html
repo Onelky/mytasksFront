@@ -1,23 +1,28 @@
+<mat-drawer-container class="example-container mat-typography" autosize>
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true">
 
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="wrapper d-flex align-items-stretch">
-  <nav id="sidebar" class="active">
-   <h1><a href="index.html" class="logo">.</a></h1>
-    <ul class="list-unstyled components mb-5">
-      <li class="active">
-        <a href="account/tags"><span class="fa fa-tags"></span> Tags</a>
-      </li>
-      <li>
-          <a href="account/recycle"><span class="fa fa-trash"></span> Trash</a>
-      </li>
+    <mat-nav-list>
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon aria-label="Menu">menu</mat-icon>
+      </mat-list-item>
 
-      <li>
-        <a href="account/configuration"><span class="fa fa-cogs"></span> Config.</a>
-      </li>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">Management A</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">Management B</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>domain</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">Management C</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>folder_shared</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">Management X</h4>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
 
-
-
-    </ul>
-  </nav>
-</div>
+</mat-drawer-container>
