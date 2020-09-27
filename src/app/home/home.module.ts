@@ -8,13 +8,14 @@ import {AppRoutingModule} from '../app-routing.module';
 import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import{TagsComponent} from './tags/tags.component'
-import{RecycleBinComponent} from './recycle-bin/recycle-bin.component'
-import{ConfigurationComponent} from './configuration/configuration.component';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatIconModule} from "@angular/material/icon";
-import {MatLineModule} from "@angular/material/core";
-import {MatListModule} from "@angular/material/list";
+import {TagsComponent} from './tags/tags.component';
+import {RecycleBinComponent} from './recycle-bin/recycle-bin.component';
+import {ConfigurationComponent} from './configuration/configuration.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatLineModule} from '@angular/material/core';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {MatListModule} from "@angular/material/list";
     MatSidenavModule,
     MatIconModule,
     MatLineModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
 
 
   ],

@@ -3,6 +3,10 @@
 
   height: 100%;
 }
+.mat-line{
+  color: #d5dae2;
+}
+
 .mat-drawer{
   padding-top: 25%;
   background-color: #20304A;
