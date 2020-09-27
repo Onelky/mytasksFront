@@ -13,6 +13,7 @@ export class TasksComponent implements OnInit {
   constructor(private appService: ApplicationService) { }
 
   ngOnInit(): void {
+    this.loadTasks();
   }
   loadTasks() {
     const homeObserver = {
