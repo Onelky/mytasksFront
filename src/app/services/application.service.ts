@@ -4,12 +4,14 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Task} from '../shared/task';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
-    'Content-Type': 'application/json; charset=utf-8'
-  })
-};
+function httpOptions() {
+  return {
+    headers: new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json; charset=utf-8'
+    })
+  }
+}
 
 
 @Injectable({
@@ -23,7 +25,7 @@ export class ApplicationService {
   }
 
   getTasks(): Observable<Task[]>{
-    return this.http.get<Task[]>(this.apiUrl + 'tasks', httpOptions);
+    return this.http.get<Task[]>(this.apiUrl + 'tasks', httpOptions());
 
   }
 }
