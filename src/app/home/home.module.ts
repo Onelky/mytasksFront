@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatLineModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -33,17 +34,18 @@ import {MatCardModule} from '@angular/material/card';
 
   ]
   ,
-  imports: [
-    BrowserModule,
-    HomeRoutingModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatLineModule,
-    MatListModule,
-    MatCardModule
+    imports: [
+        BrowserModule,
+        HomeRoutingModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatLineModule,
+        MatListModule,
+        MatCardModule,
+        MatCheckboxModule
 
 
-  ],
+    ],
   providers: [],
   bootstrap: [HomeComponent]
 })

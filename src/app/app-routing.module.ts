@@ -42,6 +42,10 @@ const routes: Routes = [
         path: 'home', component: HomeComponent,
         children: [
           {
+            path: '', component: TaskComponent
+          },
+
+          {
             path: 'tags', component: TagsComponent
           },
           {
@@ -79,7 +83,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload', useHash: false}),
     CommonModule],
 
   exports: []

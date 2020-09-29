@@ -6,17 +6,10 @@ import {RecycleBinComponent} from './recycle-bin/recycle-bin.component';
 import {ConfigurationComponent} from './configuration/configuration.component';
 
 const routes: Routes = [
-
-  {
-    path: '', component: HomeComponent
-  },
-  {
-    path: 'home', component: HomeComponent,
-  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class HomeRoutingModule { }

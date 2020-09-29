@@ -1,15 +1,14 @@
 
 export interface Task{
-  Id: number;
-  UserId: string;
-  Name: string;
-  Description: string;
-  StartDate: any;
-  DueDate: any;
-  SubTasks: [];
-   TaskTags: [];
-  Priority: number;
-   State: number;
-  Visible: boolean;
-  ElapsedTime: number;
+  id: number;
+  name: string;
+  description: string;
+  startDate: any;
+  dueDate: any;
+  subTasks?: [];
+  tags?: [];
+  priority: number;
+  state: number;
+  visible: boolean;
+  elapsedTime: number;
 }

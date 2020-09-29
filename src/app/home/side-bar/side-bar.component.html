@@ -1,7 +1,11 @@
 <router-outlet></router-outlet>
-  <mat-drawer #drawer mode="side" disableClose="true" opened="true">
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true" class="position-fixed">
+    <mat-list-item>
+      <img mat-card-image routerLink="/account/home" src="assets/img/logoTrans1.png" >
+    </mat-list-item>
 
     <mat-nav-list>
+
       <mat-list-item (click)="isExpanded = !isExpanded">
         <mat-icon mat-list-icon aria-label="Menu">menu</mat-icon>
       </mat-list-item>

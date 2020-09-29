@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Task} from '../shared/task';
+import {Tag} from '../shared/tag';
+import {map} from 'rxjs/operators';
 
 function httpOptions() {
   return {
@@ -10,7 +12,7 @@ function httpOptions() {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json; charset=utf-8'
     })
-  }
+  };
 }
 
 
@@ -28,4 +30,22 @@ export class ApplicationService {
     return this.http.get<Task[]>(this.apiUrl + 'tasks', httpOptions());
 
   }
+  getTags(): Observable<Tag[]>{
+    return this.http.get<Tag[]>(this.apiUrl + 'tags', httpOptions());
+  }
+  // tslint:disable-next-line:typedef
+  createTask(model: Task){
+    return this.http.post(this.apiUrl + 'task', model);
+  }
+  createTag(model: Tag){
+    return this.http.post(this.apiUrl + 'tag', model);
+  }
+  // tslint:disable-next-line:typedef
+  updateTask(model: Task){
+    return this.http.put(this.apiUrl + 'task', model);
+  }
+  updateTag(model: Tag){
+    return this.http.put(this.apiUrl + 'tag', model);
+  }
+
 }

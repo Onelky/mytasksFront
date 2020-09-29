@@ -1,10 +1,20 @@
 <router-outlet></router-outlet>
-<mat-drawer-container>
-  <mat-card >
-  <mat-card-header>
-    Hola
-  </mat-card-header>
-  </mat-card>
+<mat-drawer-container >
+
+
+  <mat-list>
+    <mat-card *ngFor="let todo of tasksArray">
+      <mat-list-item >
+        <mat-checkbox>
+          {{todo.name}}
+        </mat-checkbox>
+
+
+
+      </mat-list-item>
+    </mat-card>
+  </mat-list>
+
 </mat-drawer-container>
 
 

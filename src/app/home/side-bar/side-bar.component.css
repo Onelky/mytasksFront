@@ -1,14 +1,26 @@
 .mat-drawer-container{
-  padding-top: 30%;
+  padding-top: 0%;
 
   height: 100%;
 }
+.mat-card-image{
+
+  width: 50px;
+  margin-left: 10%;
+  margin-bottom: 50px;
+
+}
+.mat-sidenav {
+  width: 230px;
+}
+
 .mat-line{
   color: #d5dae2;
 }
 
 .mat-drawer{
-  padding-top: 25%;
+  margin-top: 0px;
+  height: 100%;
   background-color: #20304A;
 }
 .mat-icon{
@@ -23,9 +35,6 @@
   border-color: transparent;
 }
 
-.mat-icon-button:active:after {
-  border-color: green;
-}
 
 .mat-list-item:hover{
   background-color: #22364A;
@@ -33,12 +42,12 @@
 
 @media (min-width: 400px) {
   .mat-drawer{
-    padding-top: 20%;
+    padding-top: 30px;
   }
 }
 
 @media (min-width: 750px) {
   .mat-drawer{
-    padding-top: 10%;
+    padding-top: 30px;
   }
 }
