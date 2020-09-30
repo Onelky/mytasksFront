@@ -1,5 +1,4 @@
 /*Iconos*/
-
 .gi-2x{font-size: 2em;}
 .gi-3x{font-size: 3em;}
 .gi-4x{font-size: 4em;}
@@ -7,7 +6,7 @@
 .gi-100x{font-size: 100em;}
 
 .glyphicon {
-top:0px;
+top: 0;
 font-size: 15px;
 margin-top: 30px;
 margin-left : 70px;

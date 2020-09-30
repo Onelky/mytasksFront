@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ClockComponent } from './clock/clock.component';
-import { TasksComponent } from './tasks/tasks.component';
 import { TaskComponent } from './task/task.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {HomeRoutingModule} from './home-routing.module';
@@ -16,14 +15,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatLineModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+import {TaskDetailsComponent} from '../edit-task/task-details/task-details.component';
+
 
 
 @NgModule({
   declarations: [
     ClockComponent,
+    TaskDetailsComponent,
     HomeComponent,
-    TasksComponent,
     TaskComponent,
     SideBarComponent,
     TagsComponent,
@@ -31,21 +36,23 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     ConfigurationComponent,
 
 
-
   ]
   ,
-    imports: [
-        BrowserModule,
-        HomeRoutingModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatLineModule,
-        MatListModule,
-        MatCardModule,
-        MatCheckboxModule
+  imports: [
+    BrowserModule,
+    HomeRoutingModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatLineModule,
+    MatListModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatDialogModule,
 
-
-    ],
+  ],
   providers: [],
   bootstrap: [HomeComponent]
 })

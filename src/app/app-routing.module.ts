@@ -56,23 +56,6 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: 'tags', component: TagsComponent
-      },
-      {
-
-        path: 'recycle', component: RecycleBinComponent
-      },
-      {
-
-        path: 'configuration', component : ConfigurationComponent
-      }
-
-
-
-
-
-
     ]
   },
   {

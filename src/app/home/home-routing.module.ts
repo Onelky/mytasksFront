@@ -6,6 +6,7 @@ import {RecycleBinComponent} from './recycle-bin/recycle-bin.component';
 import {ConfigurationComponent} from './configuration/configuration.component';
 
 const routes: Routes = [
+
 ];
 
 @NgModule({
@@ -13,4 +14,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class HomeRoutingModule { }
-export const  routingComponents = [HomeComponent];

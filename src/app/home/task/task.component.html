@@ -1,21 +1,37 @@
-<router-outlet></router-outlet>
-<mat-drawer-container >
+
+
+<button mat-mini-fab class="plus-button no-focus" matTooltip="New task"
+(click)="openNewTask()">
+  <mat-icon [inline]="true" class="plus-icon">
+    add
+  </mat-icon>
+</button>
+
+
+  <router-outlet></router-outlet>
+<mat-drawer-container>
+  <button mat-icon-button class="filter-button no-focus" [matMenuTriggerFor]= "menu"
+  matTooltip="Filter" matTooltipPosition="above">
+    <mat-icon>filter_alt</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="no-focus">
+    <button mat-menu-item class="no-focus">Tag</button>
+    <button mat-menu-item class="no-focus">Date</button>
+    <button mat-menu-item class="no-focus">State</button>
+  </mat-menu>
 
 
   <mat-list>
-    <mat-card *ngFor="let todo of tasksArray">
+    <mat-card *ngFor="let task of tasksList">
       <mat-list-item >
-        <mat-checkbox>
-          {{todo.name}}
+        <mat-checkbox color="warn">
+          {{task.name}}
         </mat-checkbox>
-
-
-
       </mat-list-item>
     </mat-card>
   </mat-list>
-
 </mat-drawer-container>
+
 
 
 

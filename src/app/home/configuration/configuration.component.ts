@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationComponent implements OnInit {
 
+  // TODO: implementar lo de cambiar la contrasena
+
   constructor() { }
 
   ngOnInit(): void {

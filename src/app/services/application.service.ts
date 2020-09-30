@@ -20,8 +20,10 @@ function httpOptions() {
   providedIn: 'root'
 })
 export class ApplicationService {
-  private header: any;
   apiUrl =  environment.apiUrl + 'application/';
+  public tagsList: Tag[];
+  public tasksList: Task[];
+
 
   constructor(private http: HttpClient) {
   }
@@ -33,6 +35,11 @@ export class ApplicationService {
   getTags(): Observable<Tag[]>{
     return this.http.get<Tag[]>(this.apiUrl + 'tags', httpOptions());
   }
+  getTagsList(){
+    return this.tagsList;
+
+  }
+
   // tslint:disable-next-line:typedef
   createTask(model: Task){
     return this.http.post(this.apiUrl + 'task', model);
@@ -41,9 +48,11 @@ export class ApplicationService {
     return this.http.post(this.apiUrl + 'tag', model);
   }
   // tslint:disable-next-line:typedef
-  updateTask(model: Task){
+  updateTask
+ (model: Task){
     return this.http.put(this.apiUrl + 'task', model);
   }
+
   updateTag(model: Tag){
     return this.http.put(this.apiUrl + 'tag', model);
   }

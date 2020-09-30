@@ -15,6 +15,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +25,6 @@ import {MatButtonModule} from '@angular/material/button';
     routingComponents,
     ErrorComponent,
     NavbarComponent,
-   // ConfigurationComponent,
-   // TagsComponent,
-   // RecycleBinComponent,
-    //ConfigurationComponent,
-    //SideBarComponent
 
      // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
@@ -41,7 +39,10 @@ import {MatButtonModule} from '@angular/material/button';
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MatDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        MatMenuModule,
+        MatTooltipModule,
+        MatDialogModule
     ],
   exports: [
     NavbarComponent,
