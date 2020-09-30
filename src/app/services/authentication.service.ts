@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {observable} from 'rxjs';
-import {Observable} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +12,15 @@ export class AuthenticationService {
   apiUrl = 'https://localhost:5001/api/authentication/';
   header: any;
   value: any;
+
+  httpOptions() {
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json; charset=utf-8'
+      })
+    };
+  }
 
   constructor(private http: HttpClient) {
     const headerSettings = {
@@ -30,6 +38,7 @@ export class AuthenticationService {
         const user = response;
         if (user){
           localStorage.setItem('token', user.token);
+          localStorage.setItem('email', user.email);
         }
     }));
   }
@@ -41,5 +50,8 @@ export class AuthenticationService {
   register(model?: any)
   {
     return this.http.post(this.apiUrl + 'register', JSON.stringify(model), this.header).pipe();
+  }
+  changePassword(model: any){
+    return this.http.put(this.apiUrl + 'changepassword', model, this.httpOptions());
   }
 }

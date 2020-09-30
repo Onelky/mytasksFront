@@ -4,6 +4,14 @@
   margin-left: 120px;
   width: 70%;
 }
+.mat-card-tag{
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-left: 100px;
+  width: 85%;
+  height: 60px;
+}
+
 .mat-drawer-container{
   margin-top: 250px;
   width: 100%;
@@ -12,10 +20,10 @@
 .drawer-tags{
   margin-top: 10px;
   width: 100%;
-  min-height: 700px;
+  min-height: 100%;
 }
 .mat-selection-list{
-  margin-left: 100px;
+  margin-left: 20px;
 }
 .filter-button{
   margin-left: 90%;
@@ -49,7 +57,8 @@
 }
 .delete-icon{
   position: absolute;
-  left: 92%;
+  left: 89%;
+  bottom: 10px;
 }
 
 /* --- TITLES --- */

@@ -17,6 +17,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -42,7 +46,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
         MatButtonModule,
         MatMenuModule,
         MatTooltipModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTabsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSnackBarModule
     ],
   exports: [
     NavbarComponent,

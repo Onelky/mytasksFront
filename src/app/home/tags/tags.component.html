@@ -4,20 +4,15 @@
     add
   </mat-icon>
 </button>
-
   <mat-drawer-container class="drawer-tags">
-  <mat-list>
-    <mat-card *ngFor="let task of tagsList">
-      <mat-list-item >
+  <mat-selection-list class="no-focus" [multiple]="false" >
+    <mat-list-option class="mat-card mat-card-tag" *ngFor="let task of tagsList">
           {{task.name}}
-        <button mat-icon-button class="delete-icon no-focus">
-          <mat-icon>
-            delete_forever
-          </mat-icon>
-        </button>
-      </mat-list-item>
-    </mat-card>
-  </mat-list>
+        <button mat-icon-button class="delete-icon no-focus" matTooltip="Delete tag" matTooltipPosition="above">
+          <mat-icon>delete_forever</mat-icon></button>
+    </mat-list-option>
+  </mat-selection-list>
 </mat-drawer-container>
+<router-outlet></router-outlet>
 
 

@@ -1,0 +1,46 @@
+<router-outlet></router-outlet>
+<mat-drawer-container>
+  <h2 class="tags-title">SETTINGS</h2>
+  <h3 class="tags-subtitle"> ACCOUNT</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Change email</mat-label>
+
+        <input matInput value="{{getCurrentEmail()}}" placeholder="pat@example.com">
+
+      <mat-error></mat-error>
+    </mat-form-field>
+  <button class="save-btn-1 no-focus" mat-raised-button color="primary">Save</button>
+
+  <mat-divider></mat-divider>
+  <h3 class="tags-subtitle"> CHANGE PASSWORD</h3>
+  <form [formGroup]="passwordForm" (ngSubmit)="submitPasswordForm()">
+    <mat-form-field  appearance="outline">
+      <mat-label>Current password</mat-label>
+      <input matInput formControlName="currentPassword" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordForm.get('currentPassword').hasError('required')"> Current password is required!</mat-error>
+      <mat-error *ngIf="passwordForm.get('currentPassword').hasError('minlength')"> Current password must have at least 8 characters.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>New password</mat-label>
+      <input matInput formControlName ="newPassword" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordForm.get('newPassword').hasError('required')"> New password is required!</mat-error>
+      <mat-error *ngIf="passwordForm.get('newPassword').hasError('minlength')"> New password must have at least 8 characters.</mat-error>
+    </mat-form-field>
+
+    <button [disabled]="!passwordForm.valid" type= "submit" class="save-btn-1 no-focus" mat-raised-button color="primary">Save</button>
+
+
+  </form>
+
+
+
+</mat-drawer-container>
+
+
