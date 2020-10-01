@@ -21,8 +21,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../edit-task/task-details/task-details.component';
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core/'
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,14 @@ import {TaskDetailsComponent} from '../edit-task/task-details/task-details.compo
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
+
+
 
   ],
   providers: [],
@@ -58,3 +70,4 @@ import {TaskDetailsComponent} from '../edit-task/task-details/task-details.compo
 })
 export class HomeModule { }
 // mms
+

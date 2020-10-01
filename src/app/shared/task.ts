@@ -3,8 +3,8 @@ export interface Task{
   id: number;
   name: string;
   description: string;
-  startDate: any;
-  dueDate: any;
+  startDate: string;
+  dueDate: string;
   subTasks?: [];
   tags?: [];
   priority: number;
