@@ -1,23 +1,20 @@
 <h3 class="tags-title">TAGS</h3>
-<button mat-mini-fab class="plus-button-tags no-focus" matTooltip="New tag">
+<button mat-mini-fab class="plus-button-tags no-focus" matTooltip="New tag" (click)="openNewTag()">
   <mat-icon [inline]="true" class="plus-icon">
     add
   </mat-icon>
 </button>
-
   <mat-drawer-container class="drawer-tags">
-  <mat-list>
-    <mat-card *ngFor="let task of tagsList">
-      <mat-list-item >
-          {{task.name}}
-        <button mat-icon-button class="delete-icon no-focus">
-          <mat-icon>
-            delete_forever
-          </mat-icon>
+  <mat-selection-list class="no-focus" [multiple]="false" >
+    <mat-list-option  class="mat-card mat-card-tag" *ngFor="let tag of tagsList">
+          {{tag.name}}
+        <button  mat-icon-button class="delete-icon no-focus" matTooltip="Delete tag" matTooltipPosition="above"
+                (click)="deleteTag(tag.id)">
+          <mat-icon>delete_forever</mat-icon>
         </button>
-      </mat-list-item>
-    </mat-card>
-  </mat-list>
+    </mat-list-option>
+  </mat-selection-list>
 </mat-drawer-container>
+<router-outlet></router-outlet>
 
 

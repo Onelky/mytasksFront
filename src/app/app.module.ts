@@ -19,6 +19,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
@@ -27,6 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     routingComponents,
     ErrorComponent,
     NavbarComponent,
+    ConfirmationDialogComponent,
 
      // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
@@ -46,7 +52,11 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatTooltipModule,
         MatDialogModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatTabsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSnackBarModule
     ],
   exports: [
     NavbarComponent,

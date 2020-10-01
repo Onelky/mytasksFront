@@ -4,7 +4,6 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Task} from '../shared/task';
 import {Tag} from '../shared/tag';
-import {map} from 'rxjs/operators';
 
 function httpOptions() {
   return {
@@ -44,8 +43,8 @@ export class ApplicationService {
   createTask(model: Task){
     return this.http.post(this.apiUrl + 'task', model, httpOptions());
   }
-  createTag(model: Tag){
-    return this.http.post(this.apiUrl + 'tag', model);
+  createTag(model: any){
+    return this.http.post(this.apiUrl + 'tag', model, httpOptions());
   }
   // tslint:disable-next-line:typedef
   updateTask
@@ -55,6 +54,10 @@ export class ApplicationService {
 
   updateTag(model: Tag){
     return this.http.put(this.apiUrl + 'tag', model);
+  }
+
+  deleteTag(id: any){
+    return this.http.delete(this.apiUrl + 'tag/' + id, httpOptions());
   }
 
 }

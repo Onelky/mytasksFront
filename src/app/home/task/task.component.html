@@ -27,6 +27,17 @@
         <mat-checkbox color="warn">
           {{task.name}}
         </mat-checkbox>
+        <button mat-icon-button class="delete-task-icon no-focus" matTooltip="Delete task" matTooltipPosition="below">
+          <mat-icon>delete</mat-icon></button>
+
+        <button mat-icon-button class="more-icon no-focus" [matMenuTriggerFor]="options">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #options="matMenu" class="no-focus">
+          <button mat-menu-item class="no-focus">Edit task</button>
+          <button mat-menu-item class="no-focus">Start timer</button>
+        </mat-menu>
+
       </mat-list-item>
     </mat-card>
   </mat-list>
