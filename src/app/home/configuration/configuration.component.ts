@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentication.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-
+// TODO: Falta confirmar el correo electronico para la recuperacion de contraseña
 @Component({
   selector: 'app-configuration',
   templateUrl: './configuration.component.html',

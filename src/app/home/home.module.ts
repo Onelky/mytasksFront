@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { ClockComponent } from './clock/clock.component';
 import { TaskComponent } from './task/task.component';
-import {AppRoutingModule} from '../app-routing.module';
 import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -26,6 +25,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NewTagComponent } from './tags/new-tag/new-tag.component';
 
 
 
@@ -39,6 +39,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TagsComponent,
     RecycleBinComponent,
     ConfigurationComponent,
+    NewTagComponent,
 
 
   ]

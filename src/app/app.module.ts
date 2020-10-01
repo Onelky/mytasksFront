@@ -21,6 +21,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
     routingComponents,
     ErrorComponent,
     NavbarComponent,
+    ConfirmationDialogComponent,
 
      // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.

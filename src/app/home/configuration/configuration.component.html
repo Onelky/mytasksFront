@@ -11,7 +11,7 @@
       <mat-error *ngIf="emailForm.get('email').hasError('email')
                   && emailForm.touched" > Enter a valid Email!</mat-error>
     </mat-form-field>
-    <button [disabled]="emailForm.valid" type="submit" class="save-btn-1 no-focus" mat-raised-button color="primary">Save</button>
+    <button [disabled]="!emailForm.valid" type="submit" class="save-btn-1 no-focus" mat-raised-button color="primary">Save</button>
   </form>
 
 

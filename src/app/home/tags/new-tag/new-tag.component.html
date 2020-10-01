@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Create new tag</h2>
+<mat-dialog-content class="mat-typography">
+
+  <form [formGroup]="newTagForm" (ngSubmit)="submitTagForm()">
+    <mat-form-field appearance="outline">
+      <mat-label>Name of tag</mat-label>
+      <input formControlName="name" matInput placeholder="Subject">
+
+      <mat-error *ngIf="newTagForm.get('name').hasError('required')" > Name is required!</mat-error>
+      <mat-error *ngIf="newTagForm.get('name').hasError('maxlength')" > Name cannot exceed 20 characters!</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Short description </mat-label>
+      <input formControlName="description" matInput placeholder="This tag is of a beautiful subject">
+
+      <mat-error *ngIf="newTagForm.get('description').hasError('maxLength')" > Description cannot exceed 40 characters!</mat-error>
+
+    </mat-form-field>
+
+
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="!newTagForm.valid" type="submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+  </form>
+
+</mat-dialog-content>
+
+
