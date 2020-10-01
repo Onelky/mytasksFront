@@ -15,19 +15,24 @@ export class ConfigurationComponent implements OnInit {
     currentPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
     newPassword: new FormControl('', [Validators.required, Validators.minLength(8)])
   });
-  email = new FormControl('', [Validators.email]);
+  emailForm = new FormGroup({
+      email: new FormControl('', [Validators.email])
+    }
+  );
 
 
-  // TODO: implementar lo de cambiar el correo
+  // TODO: implementar lo de verificar el correo
 
   constructor(private _snackBar: MatSnackBar,
               private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
+  // tslint:disable-next-line:typedef
   getCurrentEmail(){
     return localStorage.getItem('email');
   }
+  // tslint:disable-next-line:typedef
   submitPasswordForm(){
     const jsonForm = JSON.stringify(this.passwordForm.value);
     const passwordObserver = {
@@ -46,6 +51,26 @@ export class ConfigurationComponent implements OnInit {
     };
     this.authService.changePassword(jsonForm).subscribe(passwordObserver);
   }
+
+
+  // tslint:disable-next-line:typedef
+  submitEmailForm(){
+    const email = this.emailForm.get('email').value;
+    const emailObserver = {
+      next: x => {
+        this.openSnackBar('Email was changed sucessfully!', '');
+        localStorage.setItem('email', email);
+      },
+      error: err => {
+        this.openSnackBar('Email could not be changed, please try again.', 'OK');
+        console.log('Email not changed   ' + err.message.value);
+      }
+    };
+    this.authService.changeEmail(email.toString()).subscribe(emailObserver);
+  }
+
+
+  // tslint:disable-next-line:typedef
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, 'OK', {
       duration: 4000,

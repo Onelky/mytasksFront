@@ -1,19 +1,25 @@
 <router-outlet></router-outlet>
 <mat-drawer-container>
-  <h2 class="tags-title">SETTINGS</h2>
-  <h3 class="tags-subtitle"> ACCOUNT</h3>
+  <form [formGroup]="emailForm" (ngSubmit)="submitEmailForm()">
+    <h2 class="tags-title">SETTINGS</h2>
+    <h3 class="tags-subtitle"> ACCOUNT</h3>
     <mat-form-field appearance="outline">
       <mat-label>Change email</mat-label>
 
-        <input matInput value="{{getCurrentEmail()}}" placeholder="pat@example.com">
+      <input formControlName="email" matInput value="holaaaa" placeholder="pat@example.com">
 
-      <mat-error></mat-error>
+      <mat-error *ngIf="emailForm.get('email').hasError('email')
+                  && emailForm.touched" > Enter a valid Email!</mat-error>
     </mat-form-field>
-  <button class="save-btn-1 no-focus" mat-raised-button color="primary">Save</button>
+    <button [disabled]="!emailForm.valid" type="submit" class="save-btn-1 no-focus" mat-raised-button color="primary">Save</button>
+  </form>
+
 
   <mat-divider></mat-divider>
-  <h3 class="tags-subtitle"> CHANGE PASSWORD</h3>
+
+
   <form [formGroup]="passwordForm" (ngSubmit)="submitPasswordForm()">
+    <h3 class="tags-subtitle"> CHANGE PASSWORD</h3>
     <mat-form-field  appearance="outline">
       <mat-label>Current password</mat-label>
       <input matInput formControlName="currentPassword" [type]="hide ? 'password' : 'text'">

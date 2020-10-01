@@ -60,6 +60,18 @@
   left: 89%;
   bottom: 10px;
 }
+.delete-task-icon{
+  color: #0E2A47;
+  position: absolute;
+  left: 89%;
+  bottom: -10px;
+}
+.more-icon{
+  color: #666A6E;
+  position: absolute;
+  left: 89%;
+  bottom: 15px;
+}
 
 /* --- TITLES --- */
 .tags-title{
