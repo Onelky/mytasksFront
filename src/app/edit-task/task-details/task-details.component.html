@@ -6,59 +6,72 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Title</mat-label>
-      <input matInput placeholder="Ex. Do exercise" class="form-control"  formControlName ="name"
-       class="form-control is-invalid" [ngClass]="{'is-invalid': taskForm.get('name').errors
-       && taskForm.get('name').touched }">
+      <input required matInput placeholder="Ex. Do exercise"  formControlName ="name"
+       class="is-invalid" [ngClass]="{'is-invalid': taskForm.get('name').errors}">
+      <mat-error *ngIf="taskForm.get('name').hasError('required')"> Name is required!</mat-error>
+      <mat-error *ngIf="taskForm.get('name').hasError('maxlength')"> Name cannot be more than 20 characters!</mat-error>
     </mat-form-field>
 <br>
 
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="description-text">
     <mat-label>Description</mat-label>
-    <textarea matInput placeholder="" class="form-control"  formControlName ="description"
-    class="form-control is-invalid" [ngClass]="{'is-invalid': taskForm.get('description').errors
-    && taskForm.get('description').touched }"></textarea>
+    <textarea matInput placeholder="" class="description-text"  formControlName ="description"
+    class=" is-invalid" [ngClass]="{'is-invalid': taskForm.get('description').errors
+    && taskForm.get('description').touched }">
+    </textarea>
   </mat-form-field>
 
 <br>
   <mat-form-field class="example-full-width" >
-    <mat-label>Start Day</mat-label>
-    <input matInput [matDatepicker]="picker" class="form-control"  formControlName ="startDate" class="form-control is-invalid" [ngClass]="{'is-invalid': taskForm.get('startDate').errors
+    <mat-label>Start Date</mat-label>
+    <input required matInput [matDatepicker]="picker"  formControlName ="startDate" class="is-invalid" [ngClass]="{'is-invalid': taskForm.get('startDate').errors
     && taskForm.get('startDate').touched }">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker>
-
-
     </mat-datepicker>
+    <mat-error *ngIf="taskForm.get('startDate').hasError('required')"> Start date is required</mat-error>
   </mat-form-field>
 
 
   <mat-form-field class="example-full-width" >
-    <mat-label>Finish Day</mat-label>
-    <input matInput [matDatepicker]="picker2" class="form-control"  formControlName ="dueDate"
-    class="form-control is-invalid" [ngClass]="{'is-invalid': taskForm.get('dueDate').errors
+    <mat-label>Due date</mat-label>
+    <input required matInput [matDatepicker]="picker2"  formControlName ="dueDate"
+    class="is-invalid" [ngClass]="{'is-invalid': taskForm.get('dueDate').errors
     && taskForm.get('dueDate').touched }">
     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
     <mat-datepicker #picker2></mat-datepicker>
+    <mat-error *ngIf="taskForm.get('dueDate').hasError('required')"> Due date is required</mat-error>
   </mat-form-field>
 <br>
-<!--
-  <strong>{{taskForm.value.Title}} </strong>
-<br>
-<strong>{{taskForm.value.Description}} </strong>
-<br>
-<strong>{{taskForm.value.StartDay}} </strong>
-<br>
-<strong>{{taskForm.value.FinishDay}} </strong>
-<button id="btnSubmit" mat-raised-button type="submit" color="primary">Submit</button>
+    <mat-form-field >
+      <mat-label>Tags</mat-label>
+      <mat-select formControlName= "tagsIds" multiple>
+        <mat-option *ngFor="let tag of tagList"
+                     [value]="tag.id">{{tag.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
 
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true"   [ngClass]="{'login-btn':  taskForm.valid, 'login-btn-disabled': taskForm.invalid}"
-  [disabled]="taskForm.invalid" >Save </button>
-</mat-dialog-actions>-->
+
+
+    <!--
+      <strong>{{taskForm.value.Title}} </strong>
+    <br>
+    <strong>{{taskForm.value.Description}} </strong>
+    <br>
+    <strong>{{taskForm.value.StartDay}} </strong>
+    <br>
+    <strong>{{taskForm.value.FinishDay}} </strong>
+    <button id="btnSubmit" mat-raised-button type="submit" color="primary">Submit</button>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true"   [ngClass]="{'login-btn':  taskForm.valid, 'login-btn-disabled': taskForm.invalid}"
+      [disabled]="taskForm.invalid" >Save </button>
+    </mat-dialog-actions>-->
 
 <button mat-button mat-dialog-close>Cancel</button>
 <button id="btnSubmit" mat-raised-button type="submit" color="blank">Save</button>

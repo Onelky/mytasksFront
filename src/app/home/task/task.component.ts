@@ -31,7 +31,8 @@ export class TaskComponent implements OnInit {
   // tslint:disable-next-line:typedef
   openNewTask(){
     // AQUI IRA EL MODULO DE NEW TASK
-    const dialogNewTask = this.dialog.open(TaskDetailsComponent);
+    const dialogNewTask = this.dialog.open(TaskDetailsComponent, {
+      height: '80%',width: '90%'});
     dialogNewTask.afterClosed().subscribe( result => {
       console.log(result.value);
     });

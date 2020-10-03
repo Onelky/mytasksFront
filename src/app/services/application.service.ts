@@ -40,7 +40,7 @@ export class ApplicationService {
   }
 
   // tslint:disable-next-line:typedef
-  createTask(model: Task){
+  createTask(model: any){
     return this.http.post(this.apiUrl + 'task', model, httpOptions());
   }
   createTag(model: any){

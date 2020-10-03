@@ -13,8 +13,9 @@ import { DatePipe } from '@angular/common';
 })
 export class TaskDetailsComponent implements OnInit {
   taskForm : FormGroup
+  tagList = this.aplicationservice.tagsList;
 
-  constructor(private router: Router,private fb : FormBuilder, private aplicationservice : ApplicationService) { }
+  constructor( private router: Router,private fb : FormBuilder, private aplicationservice : ApplicationService) { }
 
   ngOnInit(): void {
     this.createTaskForm();
@@ -27,46 +28,31 @@ createTaskForm(){
 
 this.taskForm = this.fb.group({
 
-name:  ['',Validators.required],
-description: ['',Validators.required],
+name:  ['',[Validators.required, Validators.maxLength(15)]],
+description: [''],
 startDate: ['',Validators.required],
 dueDate: ['',Validators.required],
-
+  subtasks: [[]],
+  tagIds: [[]],
 })
 
 }
 
 
 save(){
+    const newTask = JSON.stringify(this.taskForm.value);
 
-  //console.log(this.taskForm.value)
- // if (this.registerForm.valid){
-   // const registerObserver = {
-     // next: x => {console.log('SUCCESSS');
-       // this.router.navigate(['/account']);
-        // this.showMessage = true;
-     // },
-      //error: err => { console.log('Failed');
-        //this.showMessage = false; }
-    //};
-    //console.log(this.registerForm.value);
-    //this.authService.register(this.registerForm.value).subscribe(registerObserver);
-    const task = JSON.stringify(this.taskForm.value);
-
-    //if (this.taskForm.valid){
     const taskObserver = {
       next: x => {
         this.aplicationservice.tasksList.push(this.taskForm.value)
 
         console.log ('Success' + x);
 
-    this.router.navigate(['/account/home']);
     },
 
   }
- // new DatePipe('en').transform(this.taskForm.value.StartDay, 'yyyy/MM/dd');
     console.log(this.taskForm.value);
-    this.aplicationservice.createTask(this.taskForm.value).subscribe(taskObserver);
+    this.aplicationservice.createTask(newTask).subscribe(taskObserver);
     }
 
     }

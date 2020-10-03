@@ -32,6 +32,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 //import {ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NewTagComponent } from './tags/new-tag/new-tag.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -49,32 +50,33 @@ import { NewTagComponent } from './tags/new-tag/new-tag.component';
 
   ]
   ,
-  imports: [
-    BrowserModule,
-    HomeRoutingModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatLineModule,
-    MatListModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatTooltipModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatTabsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSnackBarModule
+    imports: [
+        BrowserModule,
+        HomeRoutingModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatLineModule,
+        MatListModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatTooltipModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatTabsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatSelectModule
 
-  ],
+    ],
   providers: [],
   bootstrap: [HomeComponent]
 })

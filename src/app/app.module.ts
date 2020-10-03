@@ -24,6 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
         MatTabsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatSelectModule
     ],
   exports: [
     NavbarComponent,
