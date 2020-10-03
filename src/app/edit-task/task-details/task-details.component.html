@@ -8,7 +8,7 @@
       <mat-label>Title</mat-label>
       <input required matInput placeholder="Ex. Do exercise"  formControlName ="name"
        class="is-invalid" [ngClass]="{'is-invalid': taskForm.get('name').errors}">
-      <mat-error *ngIf="taskForm.get('name').hasError('required')"> Name is required!</mat-error>
+      <mat-error *ngIf="taskForm.get('name').hasError('required')"> Name is required</mat-error>
       <mat-error *ngIf="taskForm.get('name').hasError('maxlength')"> Name cannot be more than 20 characters!</mat-error>
     </mat-form-field>
 <br>
