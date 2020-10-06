@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
+import { FormBuilder, FormGroup,
   Validators } from '@angular/forms';
 import { ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { tap} from "rxjs/operators";
 
 
 @Component({
@@ -37,17 +37,18 @@ dueDate: ['',Validators.required],
 })
 
 }
-
-
+//private fromArryObjectsToArrayOptions = (val: any)
+ getTags() {
+    this.taskForm.get('tagIds').valueChanges.pipe(
+     tap(val => console.log('valueee:' + val))
+   )
+ }
 save(){
     const newTask = JSON.stringify(this.taskForm.value);
-
+    this.getTags();
     const taskObserver = {
       next: x => {
-        this.aplicationservice.tasksList.push(this.taskForm.value)
-
-        console.log ('Success' + x);
-
+        this.aplicationservice.tasksList.push(this.taskForm.value);
     },
 
   }

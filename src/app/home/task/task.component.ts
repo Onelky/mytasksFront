@@ -3,6 +3,7 @@ import {ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.component';
+import {Task} from "../../shared/task";
 
 @Component({
   selector: 'app-task',
@@ -19,16 +20,33 @@ import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.co
 
 export class TaskComponent implements OnInit {
   router: string;
-  tasksList = this.appService.tasksList;
+  tasksList: any;
 
   // tslint:disable-next-line:variable-name
   constructor(public dialog: MatDialog, private _router: Router,
               private appService: ApplicationService) { }
 
   ngOnInit(): void {
+    this.loadTasks()
     this.router = this._router.url;
   }
   // tslint:disable-next-line:typedef
+  loadTasks() {
+    const homeObserver = {
+      next: (tasks: Task[]) => {
+        this.appService.tasksList = tasks;
+        this.tasksList = tasks;
+        console.log('SUCCESSS');
+      },
+      error: () => {
+        console.log('Failed');
+      }
+    };
+    this.appService.getTasks().subscribe(homeObserver);
+
+  }
+
+
   openNewTask(){
     // AQUI IRA EL MODULO DE NEW TASK
     const dialogNewTask = this.dialog.open(TaskDetailsComponent, {

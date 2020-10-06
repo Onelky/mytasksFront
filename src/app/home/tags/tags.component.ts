@@ -24,23 +24,38 @@ export class TagsComponent implements OnInit {
   ngOnInit(): void {
     // tslint:disable-next-line:one-variable-per-declaration
     this.tagsList = this.appService.tagsList;
+    this.loadTags();
   }
+  loadTags(){
+    const homeObserver = {
+      next: (tags: Tag[]) => {
+        this.appService.tagsList = tags;
+        this.tagsList = tags;
+      },
+      error: err => {
+        console.log('Failed');
+      }
+    };
+    this.appService.getTags().subscribe(homeObserver);
+  }
+
   openNewTag(){
-    const dialogNewTask = this.dialog.open(NewTagComponent);
-    dialogNewTask.afterClosed().subscribe( result => {
-      console.log("Ooo:" + result);
+    const dialogNewTag = this.dialog.open(NewTagComponent, {height: '40%', width: '45%'});
+    dialogNewTag.afterClosed().subscribe( result => {
+      if(result == 'save'){
+
+      }
     });
   }
   deleteTag(idTask: any){
     // tslint:disable-next-line:prefer-const
-    const dialogNewTask = this.dialog.open(ConfirmationDialogComponent);
-    dialogNewTask.afterClosed().subscribe( result => {
+    const dialogDeleteTag = this.dialog.open(ConfirmationDialogComponent);
+    dialogDeleteTag.afterClosed().subscribe( result => {
 
       if (result === 'yes'){
-
         let observer = this.msgService.getObserver('Tag');
-        this.tagsList.splice(this.tagsList.findIndex(item => item.id === idTask), 1);
         this.appService.deleteTag(idTask).subscribe(observer);
+        this.tagsList.splice(this.tagsList.findIndex(item => item.id === idTask), 1);
       }
 
     });

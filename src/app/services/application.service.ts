@@ -28,6 +28,7 @@ export class ApplicationService {
   }
 
   getTasks(): Observable<Task[]>{
+
     return this.http.get<Task[]>(this.apiUrl + 'tasks', httpOptions());
 
   }
