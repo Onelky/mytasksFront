@@ -13,7 +13,6 @@ export class ClockComponent implements OnInit {
 // TODO: Hacer este reloj, que se inicie cuando se seleccione una tarea
   constructor(public dialog: MatDialog) {
 
-
   }
 
   ngOnInit(): void {
@@ -28,6 +27,7 @@ export class ClockComponent implements OnInit {
       minutesDom : null,
       secondsDom : null,
       fillerDom : null,
+
       init : function(){
         var self = this;
         this.minutesDom = document.querySelector('#minutes');

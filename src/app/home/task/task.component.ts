@@ -3,12 +3,14 @@ import {ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.component';
+// @ts-ignore
 import {Task} from "../../shared/task";
 import {ConfirmationDialogComponent} from "../../shared/confirmation-dialog/confirmation-dialog.component";
 import {TaskConfirmationDialogComponent} from "./task-confirmation-dialog/task-confirmation-dialog.component";
 import {MessagesService} from "../../services/messages.service";
 
 import { ClockComponent } from '../clock/clock.component';
+// @ts-ignore
 import { Task } from 'src/app/shared/task';
 
 
