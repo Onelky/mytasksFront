@@ -13,11 +13,13 @@ import { tap} from "rxjs/operators";
 })
 export class TaskDetailsComponent implements OnInit {
   taskForm : FormGroup
-  tagList = this.aplicationservice.tagsList;
+  tagList: any;
+  tagsIdsArr = []
 
   constructor( private router: Router,private fb : FormBuilder, private aplicationservice : ApplicationService) { }
 
   ngOnInit(): void {
+    this.tagList = this.aplicationservice.tagsList;
     this.createTaskForm();
 
   }
@@ -38,25 +40,39 @@ dueDate: ['',Validators.required],
 
 }
 //private fromArryObjectsToArrayOptions = (val: any)
- getTags() {
-    this.taskForm.get('tagIds').valueChanges.pipe(
-     tap(val => console.log('valueee:' + val))
-   )
- }
 save(){
     const newTask = JSON.stringify(this.taskForm.value);
-    this.getTags();
     const taskObserver = {
       next: x => {
         this.aplicationservice.tasksList.push(this.taskForm.value);
     },
 
   }
+
     console.log(this.taskForm.value);
     this.aplicationservice.createTask(newTask).subscribe(taskObserver);
     }
+    getTags(){
 
     }
+
+  getTagsValues($event:{
+    source: { value: any; selected: any };
+  }){
+    const tagID = $event.source.value;
+
+      if($event.source.selected == true){
+        this.tagsIdsArr.push(tagID);
+        console.log(tagID);
+
+      } else {
+        this.tagsIdsArr =  this.tagsIdsArr.filter(function (value){return value != tagID});
+        //filtered = array.filter(function(value, index, arr){ return value > 5;});
+      }
+      this.taskForm.get('tagIds').setValue(this.tagsIdsArr);
+    console.log(this.taskForm.get('tagIds').value);
+  }
+}
 
 
     //}
