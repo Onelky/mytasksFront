@@ -16,8 +16,8 @@
 
   <mat-form-field class="description-text">
     <mat-label>Description</mat-label>
-    <textarea matInput placeholder="" class="description-text"  formControlName ="description"
-    class=" is-invalid" [ngClass]="{'is-invalid': taskForm.get('description').errors
+    <textarea matInput placeholder=""  formControlName ="description"
+    class=" description-text is-invalid" [ngClass]="{'is-invalid': taskForm.get('description').errors
     && taskForm.get('description').touched }">
     </textarea>
   </mat-form-field>
@@ -47,9 +47,10 @@
     <mat-form-field >
       <mat-label>Tags</mat-label>
       <mat-select formControlName= "tagsIds" multiple>
-        <mat-option *ngFor="let tag of tagList"
+        <mat-option (onSelectionChange)="getTagsValues($event)" *ngFor="let tag of tagList"
                      [value]="tag.id">{{tag.name}}</mat-option>
       </mat-select>
+      <p></p>
     </mat-form-field>
 
 
@@ -74,7 +75,7 @@
     </mat-dialog-actions>-->
 
 <button mat-button mat-dialog-close>Cancel</button>
-<button id="btnSubmit" mat-raised-button type="submit" color="blank">Save</button>
+<button [disabled]="taskForm.invalid" id="btnSubmit" mat-raised-button  mat-dialog-close type="submit" color="blank">Save</button>
   </form>
 
 

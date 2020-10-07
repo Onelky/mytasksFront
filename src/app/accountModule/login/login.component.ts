@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentication.service';
 import {Router} from '@angular/router';
+import {ApplicationService} from "../../services/application.service";
 
 @Component({
   selector: 'app-login',
@@ -63,5 +64,6 @@ export class LoginComponent implements OnInit {
     }
 
 
-  }
+
+}
 

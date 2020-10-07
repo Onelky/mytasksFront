@@ -22,15 +22,14 @@ export class NewTagComponent implements OnInit {
               private appService: ApplicationService) { }
   ngOnInit(): void {
   }
-  // TODO: DONE falta la funcion de agregar un nuevo tag
   submitTagForm(){
     const tag = JSON.stringify(this.newTagForm.value);
     const tagObserver = {
-      next: x => {
+      next: () => {
         this.appService.tagsList.push(this.newTagForm.value);
         this.openSnackBar('Tag was created sucessfully!');
       },
-      error: err => {
+      error: () => {
         this.openSnackBar('New tag could not be created, please try again.');
       }
     };

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.component';
 import { ClockComponent } from '../clock/clock.component';
+import { Task } from 'src/app/shared/task';
 
 
 @Component({
@@ -21,7 +22,7 @@ import { ClockComponent } from '../clock/clock.component';
 
 export class TaskComponent implements OnInit {
   router: string;
- tasksList = this.appService.tasksList;
+  tasksList: any;
 
   // tslint:disable-next-line:variable-name
   constructor(public dialog: MatDialog, private _router: Router,
@@ -30,12 +31,29 @@ export class TaskComponent implements OnInit {
            //   taskList : Task[];
 
   ngOnInit(): void {
+    this.loadTasks()
     this.router = this._router.url;
  //   this.tasksList  = this.appService.tasksList;
   }
 
 
   // tslint:disable-next-line:typedef
+  loadTasks() {
+    const homeObserver = {
+      next: (tasks: Task[]) => {
+        this.appService.tasksList = tasks;
+        this.tasksList = tasks;
+        console.log('SUCCESSS');
+      },
+      error: () => {
+        console.log('Failed');
+      }
+    };
+    this.appService.getTasks().subscribe(homeObserver);
+
+  }
+
+
   openNewTask(){
     // AQUI IRA EL MODULO DE NEW TASK
     const dialogNewTask = this.dialog.open(TaskDetailsComponent, {
