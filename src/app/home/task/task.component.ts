@@ -3,6 +3,8 @@ import {ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.component';
+import { ClockComponent } from '../clock/clock.component';
+
 
 @Component({
   selector: 'app-task',
@@ -19,15 +21,20 @@ import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.co
 
 export class TaskComponent implements OnInit {
   router: string;
-  tasksList = this.appService.tasksList;
+ tasksList = this.appService.tasksList;
 
   // tslint:disable-next-line:variable-name
   constructor(public dialog: MatDialog, private _router: Router,
               private appService: ApplicationService) { }
 
+           //   taskList : Task[];
+
   ngOnInit(): void {
     this.router = this._router.url;
+ //   this.tasksList  = this.appService.tasksList;
   }
+
+
   // tslint:disable-next-line:typedef
   openNewTask(){
     // AQUI IRA EL MODULO DE NEW TASK
@@ -37,8 +44,18 @@ export class TaskComponent implements OnInit {
       console.log(result.value);
     });
   }
-  completeTask(id: number){
+  completeTask(id: number){ }
+
+  beginTask(){
+    const dialogBegintask = this.dialog.open(ClockComponent, {
+      height: '60%',width: '40%'});
+    dialogBegintask.afterClosed().subscribe( result => {
+      console.log(result.value);
+
+  });
 
 
-  }
+
+
+}
 }

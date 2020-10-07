@@ -1,1 +1,29 @@
-<p>clock works!</p>
+<div id="pomodoro-app">
+  <div id="container">
+    <div id="timer">
+      <div id="time">
+        <span id="minutes">25</span>
+        <span id="colon">:</span>
+        <span id="seconds">00</span>
+      </div>
+      <div id="filler"></div>
+    </div>
+
+    <div id="buttons">
+      <mat-divider></mat-divider>
+      <button  mat-stroked-button color="primary" id="work">Work</button>
+      <button  mat-stroked-button color="primary" id="shortBreak">Short Break</button>
+      <button  mat-stroked-button color="primary"id="longBreak">Long Break</button>
+      <button   mat-stroked-button color= "warn" id="stop" (click)="cancelTask()">Stop</button>
+
+
+      <mat-divider></mat-divider>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
