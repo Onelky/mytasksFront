@@ -44,13 +44,17 @@ export class ApplicationService {
   createTask(model: any){
     return this.http.post(this.apiUrl + 'task', model, httpOptions());
   }
+  deleteTask(id: any){
+    return this.http.delete(this.apiUrl + 'task/' + id, httpOptions());
+  }
+
+
   createTag(model: any){
     return this.http.post(this.apiUrl + 'tag', model, httpOptions());
   }
   // tslint:disable-next-line:typedef
-  updateTask
- (model: Task){
-    return this.http.put(this.apiUrl + 'task', model);
+  updateTask(model: any){
+    return this.http.put(this.apiUrl + 'task', model, httpOptions());
   }
 
   updateTag(model: Tag){

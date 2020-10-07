@@ -33,6 +33,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NewTagComponent } from './tags/new-tag/new-tag.component';
 import {MatSelectModule} from "@angular/material/select";
+import {TaskConfirmationDialogComponent} from "./task/task-confirmation-dialog/task-confirmation-dialog.component";
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {MatSelectModule} from "@angular/material/select";
     RecycleBinComponent,
     ConfigurationComponent,
     NewTagComponent,
+    TaskConfirmationDialogComponent
 
 
   ]

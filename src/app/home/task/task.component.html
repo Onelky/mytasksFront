@@ -26,7 +26,7 @@
         <mat-checkbox color="warn">
           {{task.name}}
         </mat-checkbox>
-        <button mat-icon-button class="delete-task-icon no-focus" matTooltip="Delete task" matTooltipPosition="below">
+        <button (click)="recycleTask(task.id)" mat-icon-button class="delete-task-icon no-focus" matTooltip="Delete task" matTooltipPosition="below">
           <mat-icon>delete</mat-icon></button>
 
         <button mat-icon-button class="more-icon no-focus" [matMenuTriggerFor]="options">

@@ -1,1 +1,20 @@
 <h3 class="tags-title">RECYCLE BIN</h3>
+<mat-drawer-container class="drawer-tags">
+  <h4 *ngIf="recycledTasks.empty">THIS IS EMPTYYY</h4>
+  <mat-list>
+    <mat-card *ngFor="let task of recycledTasks">
+      <mat-list-item >
+        <mat-list-item  color="warn">
+          {{task.name}}
+        </mat-list-item>
+        <button (click)="deleteDialog(task.id)" mat-icon-button class="delete-task-icon no-focus" matTooltip="Delete task" matTooltipPosition="below">
+          <mat-icon>delete_forever</mat-icon></button>
+
+        <button (click)="restoreTask(task.id)" mat-icon-button class="more-icon no-focus" matTooltip="Restore task" matTooltipPosition = "above">
+          <mat-icon>restore</mat-icon>
+        </button>
+
+      </mat-list-item>
+    </mat-card>
+  </mat-list>
+</mat-drawer-container>

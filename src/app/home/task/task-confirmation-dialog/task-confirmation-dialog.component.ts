@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-confirmation-dialog',
-  templateUrl: './confirmation-dialog.component.html',
+  templateUrl: './task-confirmation-dialog.component.html',
   //styleUrls: ['./task-confirmation-dialog.component.css']
 })
-export class ConfirmationDialogComponent implements OnInit {
+export class TaskConfirmationDialogComponent implements OnInit {
 
   constructor() { }
 

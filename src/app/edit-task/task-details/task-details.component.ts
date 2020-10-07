@@ -26,8 +26,6 @@ export class TaskDetailsComponent implements OnInit {
 
 createTaskForm(){
 
-
-
 this.taskForm = this.fb.group({
 
 name:  ['',[Validators.required, Validators.maxLength(15)]],
@@ -48,17 +46,14 @@ save(){
     },
 
   }
-
     console.log(this.taskForm.value);
     this.aplicationservice.createTask(newTask).subscribe(taskObserver);
-    }
-    getTags(){
-
     }
 
   getTagsValues($event:{
     source: { value: any; selected: any };
   }){
+    // Metodo para obtener los ids de las tareas que van siendo seleccionadas
     const tagID = $event.source.value;
 
       if($event.source.selected == true){
@@ -66,8 +61,7 @@ save(){
         console.log(tagID);
 
       } else {
-        this.tagsIdsArr =  this.tagsIdsArr.filter(function (value){return value != tagID});
-        //filtered = array.filter(function(value, index, arr){ return value > 5;});
+        this.tagsIdsArr =  this.tagsIdsArr.filter((value) => {return value != tagID});
       }
       this.taskForm.get('tagIds').setValue(this.tagsIdsArr);
     console.log(this.taskForm.get('tagIds').value);
