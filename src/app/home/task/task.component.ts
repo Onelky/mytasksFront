@@ -8,6 +8,9 @@ import {ConfirmationDialogComponent} from "../../shared/confirmation-dialog/conf
 import {TaskConfirmationDialogComponent} from "./task-confirmation-dialog/task-confirmation-dialog.component";
 import {MessagesService} from "../../services/messages.service";
 
+import { ClockComponent } from '../clock/clock.component';
+import { Task } from 'src/app/shared/task';
+
 
 @Component({
   selector: 'app-task',
@@ -19,6 +22,7 @@ import {MessagesService} from "../../services/messages.service";
 // TODO: agregar form de nueva task
 
 // TODO: Aplicacion dee filtros (aplicar sub-menus para cada opcion)
+
 
 
 export class TaskComponent implements OnInit {
@@ -33,6 +37,7 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
     this.loadTasks()
     this.router = this._router.url;
+ //   this.tasksList  = this.appService.tasksList;
   }
   // tslint:disable-next-line:typedef
   loadTasks() {
@@ -51,6 +56,7 @@ export class TaskComponent implements OnInit {
     this.appService.getTasks().subscribe(homeObserver);
 
   }
+
 
   openNewTask(){
     // AQUI IRA EL MODULO DE NEW TASK
@@ -79,9 +85,13 @@ export class TaskComponent implements OnInit {
   }
 
 
+  beginTask(){
+    const dialogBegintask = this.dialog.open(ClockComponent, {
+      height: '60%',width: '40%'});
+    dialogBegintask.afterClosed().subscribe( result => {
+      console.log(result.value);
 
-  completeTask(id: number){
-
+  });
 
   }
 }

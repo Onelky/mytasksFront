@@ -25,6 +25,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import {MatSelectModule} from "@angular/material/select";
+import { CancelTaskDialogComponent } from './shared/cancel-task-dialog/cancel-task-dialog.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {MatSelectModule} from "@angular/material/select";
     ErrorComponent,
     NavbarComponent,
     ConfirmationDialogComponent,
+    CancelTaskDialogComponent,
 
      // esto es para no tener que hacer una lista de componentes
     // cada vez que se anada uno nueo se agregara automaticamente.
