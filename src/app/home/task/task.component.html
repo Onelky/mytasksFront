@@ -35,7 +35,7 @@
         </button>
         <mat-menu #options="matMenu" class="no-focus">
           <button mat-menu-item class="no-focus">Edit task</button>
-          <button mat-menu-item class="no-focus"  (click)="beginTask()"  >Start timer</button>
+          <button mat-menu-item class="no-focus"  (click)="openTimer(task.id)"  >Start timer</button>
         </mat-menu>
 
       </mat-list-item>

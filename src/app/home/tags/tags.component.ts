@@ -18,9 +18,7 @@ export class TagsComponent implements OnInit {
   constructor(private dialog: MatDialog, private router: Router,
               private msgService: MessagesService,private appService: ApplicationService) { }
   tagsList: Tag[];
-
-  // TODO: cuando se seleccione un tag se deberan cargar todas las tareas que pertenecen a este.
-
+  
   ngOnInit(): void {
     // tslint:disable-next-line:one-variable-per-declaration
     this.tagsList = this.appService.tagsList;
@@ -32,8 +30,8 @@ export class TagsComponent implements OnInit {
         this.appService.tagsList = tags;
         this.tagsList = tags;
       },
-      error: err => {
-        console.log('Failed');
+      error: () => {
+        // TODO poner error
       }
     };
     this.appService.getTags().subscribe(homeObserver);
@@ -43,7 +41,6 @@ export class TagsComponent implements OnInit {
     const dialogNewTag = this.dialog.open(NewTagComponent, {height: '40%', width: '45%'});
     dialogNewTag.afterClosed().subscribe( result => {
       if(result == 'save'){
-
       }
     });
   }

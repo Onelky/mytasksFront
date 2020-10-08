@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup,
   Validators } from '@angular/forms';
 import { ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
-import { tap} from "rxjs/operators";
+import {Tag} from "../../shared/tag";
 
 
 @Component({
@@ -13,16 +13,26 @@ import { tap} from "rxjs/operators";
 })
 export class TaskDetailsComponent implements OnInit {
   taskForm : FormGroup
-  tagList: any;
-  tagsIdsArr = []
+  tagsList: any;
+  selectedTagsIds = []
 
-  constructor( private router: Router,private fb : FormBuilder, private aplicationservice : ApplicationService) { }
+  constructor( private router: Router,private fb : FormBuilder,
+               private aplicationservice : ApplicationService,
+               private appService: ApplicationService) { }
 
   ngOnInit(): void {
-    this.tagList = this.aplicationservice.tagsList;
+    if(this.aplicationservice.tagsList == undefined)
+    {
+      const observer = {
+        next: (tags: Tag[]) => {
+          this.tagsList = tags;
+        }
+      }
+      this.tagsList = this.appService.getTags().subscribe(observer)
+    }
     this.createTaskForm();
+}
 
-  }
 
 createTaskForm(){
 
@@ -40,14 +50,12 @@ dueDate: ['',Validators.required],
 //private fromArryObjectsToArrayOptions = (val: any)
 save(){
     const newTask = JSON.stringify(this.taskForm.value);
-    const taskObserver = {
-      next: x => {
-        this.aplicationservice.tasksList.push(this.taskForm.value);
-    },
+    const taskObserver  = { next: () => {
 
-  }
-    console.log(this.taskForm.value);
+    },
+  };
     this.aplicationservice.createTask(newTask).subscribe(taskObserver);
+
     }
 
   getTagsValues($event:{
@@ -57,19 +65,18 @@ save(){
     const tagID = $event.source.value;
 
       if($event.source.selected == true){
-        this.tagsIdsArr.push(tagID);
+        this.selectedTagsIds.push(tagID);
         console.log(tagID);
 
       } else {
-        this.tagsIdsArr =  this.tagsIdsArr.filter((value) => {return value != tagID});
+        this.selectedTagsIds =  this.selectedTagsIds.filter((value) => {return value != tagID});
       }
-      this.taskForm.get('tagIds').setValue(this.tagsIdsArr);
+      this.taskForm.get('tagIds').setValue(this.selectedTagsIds);
     console.log(this.taskForm.get('tagIds').value);
   }
 }
 
 
-    //}
 
 
 

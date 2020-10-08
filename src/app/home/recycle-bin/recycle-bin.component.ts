@@ -28,7 +28,7 @@ export class RecycleBinComponent implements OnInit {
         let observer = this.msgService.getObserver('Task');
         this.appService.deleteTask(idTask).subscribe(observer);
         this.globalTaksList.splice(this.globalTaksList.findIndex(item => item.id === idTask), 1);
-        this.recycledTasks = this.globalTaksList;
+        this.recycledTasks = this.globalTaksList.filter((value) => {return value.visible == false})
 
       }
     });

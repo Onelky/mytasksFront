@@ -47,7 +47,7 @@
     <mat-form-field >
       <mat-label>Tags</mat-label>
       <mat-select formControlName= "tagsIds" multiple>
-        <mat-option (onSelectionChange)="getTagsValues($event)" *ngFor="let tag of tagList"
+        <mat-option (onSelectionChange)="getTagsValues($event)" *ngFor="let tag of tagsList"
                      [value]="tag.id">{{tag.name}}</mat-option>
       </mat-select>
       <p></p>

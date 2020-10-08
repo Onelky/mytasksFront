@@ -7,6 +7,11 @@
   text-align:center;
   background :white;
 }
+.close-btn{
+  color: #919aa3;
+  margin-left: 90%;
+  margin-top: -90px;
+}
 
 #timer{
   color:#20304A;
@@ -33,7 +38,7 @@
 
 #filler{
   background : #3f4958;
-  height: 0px;
+  height: 0;
   width: 200px;
   position:absolute;
   bottom:0;

@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.component';
 // @ts-ignore
 import {Task} from "../../shared/task";
-import {ConfirmationDialogComponent} from "../../shared/confirmation-dialog/confirmation-dialog.component";
 import {TaskConfirmationDialogComponent} from "./task-confirmation-dialog/task-confirmation-dialog.component";
 import {MessagesService} from "../../services/messages.service";
 
 import { ClockComponent } from '../clock/clock.component';
 // @ts-ignore
-import { Task } from 'src/app/shared/task';
 
 
 @Component({
@@ -29,16 +27,18 @@ import { Task } from 'src/app/shared/task';
 
 export class TaskComponent implements OnInit {
   router: string;
-  tasksList: any;
+  tasksList: Task[];
 
   // tslint:disable-next-line:variable-name
   constructor(public dialog: MatDialog, private _router: Router,
               private appService: ApplicationService,
+
               private msgService: MessagesService) { }
 
   ngOnInit(): void {
     this.loadTasks()
-    this.router = this._router.url;
+
+
  //   this.tasksList  = this.appService.tasksList;
   }
   // tslint:disable-next-line:typedef
@@ -52,7 +52,6 @@ export class TaskComponent implements OnInit {
 
       },
       error: () => {
-        console.log('Failed');
       }
     };
     this.appService.getTasks().subscribe(homeObserver);
@@ -61,12 +60,9 @@ export class TaskComponent implements OnInit {
 
 
   openNewTask(){
-    // AQUI IRA EL MODULO DE NEW TASK
     const dialogNewTask = this.dialog.open(TaskDetailsComponent, {
       height: '80%',width: '90%'});
-    dialogNewTask.afterClosed().subscribe( result => {
-      console.log(result.value);
-    });
+    dialogNewTask.afterClosed().subscribe();
   }
   recycleTask(taskId: any){
     // tslint:disable-next-line:prefer-const
@@ -76,7 +72,7 @@ export class TaskComponent implements OnInit {
       if (result === 'yes'){
         let observer = this.msgService.getObserver('Task');
 
-        const currentTask = this.tasksList.find(x => x.id === taskId);
+        const currentTask = this.getSelectedTask(taskId);
         currentTask.visible = false;
 
         this.appService.updateTask(currentTask).subscribe(observer);
@@ -85,15 +81,22 @@ export class TaskComponent implements OnInit {
 
     });
   }
+  getSelectedTask(taskId: number){
+    return this.tasksList.find(x => x.id === taskId);
+  }
 
-
-  beginTask(){
+  openTimer(taskId: number){
     const dialogBegintask = this.dialog.open(ClockComponent, {
-      height: '60%',width: '40%'});
-    dialogBegintask.afterClosed().subscribe( result => {
-      console.log(result.value);
+      height: '80%',width: '75%', disableClose: true});
+    dialogBegintask.afterClosed().subscribe( timer => {
+      console.log('out ' + timer.data);
 
-  });
+      const currentTask = this.getSelectedTask(taskId);
+      currentTask.elapsedTime += timer.data;
+
+      this.appService.updateTask(currentTask).subscribe();
+      console.log(currentTask);
+    });
 
   }
 }
