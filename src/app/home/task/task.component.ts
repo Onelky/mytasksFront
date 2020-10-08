@@ -22,7 +22,7 @@ import { ClockComponent } from '../clock/clock.component';
 
 // TODO: Aplicacion de filtros (aplicar sub-menus para cada opcion)
 
-
+// TODO: Form de editar task
 
 export class TaskComponent implements OnInit {
   router: string;
@@ -92,7 +92,6 @@ export class TaskComponent implements OnInit {
 
       const currentTask = this.getSelectedTask(taskId);
       currentTask.elapsedTime += timer.data;
-      // TODO: cambiar el estado de la tarea una vez iniciada por primera vez
       if(currentTask.elapsedTime > 0){
         currentTask.state = 1;
       }

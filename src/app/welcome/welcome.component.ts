@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  // TODO: Sustituir imagenes del inicio.
 
   constructor() { }
 
