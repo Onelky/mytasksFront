@@ -17,11 +17,10 @@ import { ClockComponent } from '../clock/clock.component';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
-// TODO: Agregar detalles de todas las tareas
 
-// TODO: agregar form de nueva task
+// TODO: Arreglar el form de nueva task
 
-// TODO: Aplicacion dee filtros (aplicar sub-menus para cada opcion)
+// TODO: Aplicacion de filtros (aplicar sub-menus para cada opcion)
 
 
 
@@ -93,10 +92,32 @@ export class TaskComponent implements OnInit {
 
       const currentTask = this.getSelectedTask(taskId);
       currentTask.elapsedTime += timer.data;
+      // TODO: cambiar el estado de la tarea una vez iniciada por primera vez
+      if(currentTask.elapsedTime > 0){
+        currentTask.state = 1;
+      }
 
       this.appService.updateTask(currentTask).subscribe();
       console.log(currentTask);
     });
 
   }
+
+  getState(stateNumber: number){
+    if(stateNumber === 0){
+      return 'Not started '
+
+    } else if(stateNumber === 1){
+
+      return 'Started '
+
+    }
+  }
+
+  transform(value: number): string {
+
+    return new Date(value * 1000).toISOString().substr(11, 8)
+
+  }
+
 }

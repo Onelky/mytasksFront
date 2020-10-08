@@ -18,7 +18,7 @@ export class TagsComponent implements OnInit {
   constructor(private dialog: MatDialog, private router: Router,
               private msgService: MessagesService,private appService: ApplicationService) { }
   tagsList: Tag[];
-  
+
   ngOnInit(): void {
     // tslint:disable-next-line:one-variable-per-declaration
     this.tagsList = this.appService.tagsList;

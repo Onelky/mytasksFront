@@ -3,6 +3,10 @@
   margin-bottom: 5px;
   margin-left: 120px;
   width: 70%;
+  height: auto;
+}
+.span{
+  margin-top: -80px;
 }
 .mat-card-tag{
   margin-top: 20px;
@@ -11,9 +15,12 @@
   width: 85%;
   height: 60px;
 }
-
+.mat-list-item{
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
 .mat-drawer-container{
-  margin-top: 50px;
+  margin-top: 20px;
   width: 100%;
   min-height: 700px;
 }
@@ -31,6 +38,55 @@
 .mat-menu{
   margin-left: 90%;
 
+}
+
+/* TAGS */
+.tags-mat-chip-list{
+  position: absolute;
+  top: 45px;
+  left: 40px;
+}
+.date-label{
+  font-size: 10px;
+  position: absolute;
+  top: 28px;
+  left: 40px;
+  color: rgba(128,128,128, 0.8);
+}
+
+
+.state-tag{
+  color: #666A6E;
+  font-size: 10px;
+  width: auto;
+  min-height: 1px;
+  border-radius: 1px;
+  left: 8px;
+  bottom: 5px;
+}
+.state-tag-finished{
+  background-color: aliceblue;
+  color: #42A948
+}
+
+.tags-mat-chip{
+  margin-top: -10px;
+  font-size: 10px;
+  width: auto;
+  min-height: 2px;
+}
+
+
+
+/* --- ICONS --- */
+.plus-icon{
+  margin-top: -10px;
+
+}
+.delete-icon{
+  position: absolute;
+  left: 89%;
+  bottom: 10px;
 }
 .plus-button{
   font-size: 20px;
@@ -50,16 +106,6 @@
 
 }
 
-/* --- ICONS --- */
-.plus-icon{
-  margin-top: -10px;
-
-}
-.delete-icon{
-  position: absolute;
-  left: 89%;
-  bottom: 10px;
-}
 .delete-task-icon{
   color: #0E2A47;
   position: absolute;
@@ -78,6 +124,7 @@
   margin-top: 30px;
   margin-left: 110px;
 }
+
 
 .h4{
   margin-top: 30px;

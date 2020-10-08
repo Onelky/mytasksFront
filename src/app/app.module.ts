@@ -26,6 +26,7 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import {MatSelectModule} from "@angular/material/select";
 import { CancelTaskDialogComponent } from './shared/cancel-task-dialog/cancel-task-dialog.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { CancelTaskDialogComponent } from './shared/cancel-task-dialog/cancel-ta
         MatFormFieldModule,
         MatInputModule,
         MatSnackBarModule,
-        MatSelectModule
+        MatSelectModule,
+        MatChipsModule
     ],
   exports: [
     NavbarComponent,

@@ -34,6 +34,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NewTagComponent } from './tags/new-tag/new-tag.component';
 import {MatSelectModule} from "@angular/material/select";
 import {TaskConfirmationDialogComponent} from "./task/task-confirmation-dialog/task-confirmation-dialog.component";
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import {TaskConfirmationDialogComponent} from "./task/task-confirmation-dialog/t
         MatInputModule,
         ReactiveFormsModule,
         MatSnackBarModule,
-        MatSelectModule
+        MatSelectModule,
+        MatChipsModule
 
     ],
   providers: [],
