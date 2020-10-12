@@ -47,6 +47,7 @@ export class TaskComponent implements OnInit {
 
         this.appService.tasksList = tasks;
         // Se obtiene los valores que son visibles
+
         this.tasksList = tasks.filter((value) => {return value.visible == true});
         this.tasksList = this.tasksList.sort((a, b) => a.state - b.state);
 
@@ -58,11 +59,22 @@ export class TaskComponent implements OnInit {
 
   }
 
-  sortByState(){
-    this.tasksList = this.tasksList.filter((value) => {return value.state == 2});
+  sortByState(state: number){
+    this.tasksList = this.tasksList.filter((value) => {return value.state == state});
   }
-  sortByDate(){
-    this.tasksList = this.tasksList.sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+
+  sortByDate(type: string){
+    if(type === 'asc'){
+      this.tasksList = this.tasksList.sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+    }
+    else{
+      this.tasksList = this.tasksList.sort((a, b) => new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime());
+    }
+  }
+
+  notSorting(){
+    this.tasksList = this.appService.tasksList.filter((value) => {return value.visible == true});
+    this.tasksList = this.appService.tasksList.sort((a, b) => a.state - b.state);
   }
 
 

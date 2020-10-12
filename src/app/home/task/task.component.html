@@ -14,9 +14,22 @@
   matTooltip="Filter" matTooltipPosition="above">
     <mat-icon>filter_alt</mat-icon>
   </button>
-  <mat-menu #menu="matMenu" class="no-focus">
-    <button mat-menu-item class="no-focus">Tag</button>
-    <button (click)="sortByState()" mat-menu-item class="no-focus">State</button>
+  <mat-menu #menu="matMenu" class="no-focus" xPosition="before">
+    <button mat-menu-item class="no-focus" (click)="notSorting()">No filter</button>
+    <button mat-menu-item class="no-focus" [matMenuTriggerFor]= "menuDate">Date</button>
+    <button mat-menu-item class="no-focus" [matMenuTriggerFor]="menuState">State</button>
+  </mat-menu>
+
+  <mat-menu #menuDate = "matMenu" class="no-focus" xPosition="before">
+    <button mat-menu-item class="no-focus" (click)="sortByDate('asc')">Asc</button>
+    <button mat-menu-item class="no-focus" (click)="sortByDate('desc')">Desc</button>
+  </mat-menu>
+
+  <mat-menu #menuState = "matMenu" class="no-focus" xPosition="before">
+
+    <button mat-menu-item class="no-focus" (click)="sortByState(0)">Not started</button>
+    <button mat-menu-item class="no-focus" (click)="sortByState(1)"> Started</button>
+    <button mat-menu-item class="no-focus" (click)="sortByState(2)">Finished</button>
   </mat-menu>
 
 
@@ -30,12 +43,8 @@
           <mat-checkbox [checked]="task.state == 2" (change)="finishTask($event, task.id)" color="warn">
             {{task.name}}
           </mat-checkbox>
-          <mat-chip class="state-tag"  id="state-with-hour" *ngIf="task.state == 1">
-            {{getState(task.state)}} - {{transform(task.elapsedTime)}}
-          </mat-chip>
-
           <mat-chip class="state-tag" *ngIf="task.state !== 2">
-            {{getState(task.state)}}
+            {{getState(task.state)}} - {{transform(task.elapsedTime)}}
           </mat-chip>
 
           <mat-chip class=" state-tag state-tag-finished" *ngIf="task.state === 2">

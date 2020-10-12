@@ -7,7 +7,6 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['../login/login.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-// TODO: Hacer reactive form, modificar este form para que diga usuario en vez de correo
 
   constructor() { }
 
