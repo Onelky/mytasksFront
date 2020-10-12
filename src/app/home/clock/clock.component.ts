@@ -9,7 +9,6 @@ import { CancelTaskDialogComponent } from 'src/app/shared/cancel-task-dialog/can
 })
 export class ClockComponent implements OnInit {
 
-  // TODO: agregar nombre de la tarea actual
   pomodoro = {
     elapsedTime: 0,
     started : false,

@@ -10,8 +10,6 @@ import {ApplicationService} from '../../../services/application.service';
   styleUrls: ['./new-tag.component.css']
 })
 export class NewTagComponent implements OnInit {
-  // TODO: mejorar aspectos esteticos del form
-
 
   newTagForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(20)]),

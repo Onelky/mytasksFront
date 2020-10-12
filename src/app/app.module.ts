@@ -27,6 +27,7 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
 import {MatSelectModule} from "@angular/material/select";
 import { CancelTaskDialogComponent } from './shared/cancel-task-dialog/cancel-task-dialog.component';
 import {MatChipsModule} from "@angular/material/chips";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {MatChipsModule} from "@angular/material/chips";
         MatDatepickerModule,
         MatNativeDateModule,
         MatTabsModule,
+      MatAutocompleteModule,
         MatFormFieldModule,
         MatInputModule,
         MatSnackBarModule,

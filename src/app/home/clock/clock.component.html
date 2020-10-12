@@ -1,6 +1,8 @@
-<button  mat-icon-button (click)="close()" class="close-btn no-focus" color="primary" id="close-btn">
+<button  mat-icon-button cdkfocusinitial="false" (click)="close()" class="close-btn no-focus" color="primary" id="close-btn">
   <mat-icon>close</mat-icon>
 </button>
+<h3 class="mat-dialog-title" mat-dialog-title>Current task: {{data.name}}</h3>
+
 <div  id="pomodoro-app">
   <div id="container">
     <div id="timer">

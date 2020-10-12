@@ -5,8 +5,15 @@
   width: 70%;
   height: auto;
 }
+.custom-dialog-container .mat-dialog-container {
+  overflow-y: hidden;
+}
+
 .span{
   margin-top: -80px;
+}
+.mat-group{
+  margin-left: 100px;
 }
 .mat-card-tag{
   margin-top: 20px;

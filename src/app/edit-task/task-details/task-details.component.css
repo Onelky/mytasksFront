@@ -1,8 +1,44 @@
+.mat-dialog-content{
+  overflow-y: hidden !important;
+
+}
 .description-text{
-  width: 80%;
   height: 150px;
+  min-width: 435px;
+
+  border-color: #666A6E;
+}
+.title{
+  margin-bottom: 10px;
 }
 .textarea{
   height: 150px;
 }
+.dates{
+  margin-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.subtasks{
+  float: right;
+  width: 30%;
+}
+.details{
+  float: left;
+  width: 70%;
 
+}
+.title-subtask{
+  font-size: 14px;
+  color: #919aa3;
+  margin-bottom: 30px;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #06214d;
+}
+.subtask{
+  margin-top: 5px;
+}
+.checkbox-input{
+  margin-left: 5px !important;
+}

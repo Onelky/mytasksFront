@@ -3,30 +3,31 @@ import {ApplicationService} from '../../services/application.service';
 import {Router} from '@angular/router';
 import { MatDialog} from '@angular/material/dialog';
 import {TaskDetailsComponent} from '../../edit-task/task-details/task-details.component';
+
 // @ts-ignore
 import {Task} from "../../shared/task";
 import {TaskConfirmationDialogComponent} from "./task-confirmation-dialog/task-confirmation-dialog.component";
 import {MessagesService} from "../../services/messages.service";
-
 import { ClockComponent } from '../clock/clock.component';
+import { DatePipe } from '@angular/common';
 // @ts-ignore
-
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
+  styleUrls: ['./task.component.css'],
+  providers: [DatePipe]
 })
-
-// TODO: Arreglar el form de nueva task
 
 // TODO: Aplicacion de filtros (aplicar sub-menus para cada opcion)
 
 // TODO: Form de editar task
-
+// TODO: Filtro por fecha descendente y asc
 export class TaskComponent implements OnInit {
   router: string;
   tasksList: Task[];
+  sortedTasks: any;
+  currentState: number;
 
   // tslint:disable-next-line:variable-name
   constructor(public dialog: MatDialog, private _router: Router,
@@ -37,8 +38,7 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
     this.loadTasks()
 
-
- //   this.tasksList  = this.appService.tasksList;
+    //   this.tasksList  = this.appService.tasksList;
   }
   // tslint:disable-next-line:typedef
   loadTasks() {
@@ -48,6 +48,7 @@ export class TaskComponent implements OnInit {
         this.appService.tasksList = tasks;
         // Se obtiene los valores que son visibles
         this.tasksList = tasks.filter((value) => {return value.visible == true});
+        this.tasksList = this.tasksList.sort((a, b) => a.state - b.state);
 
       },
       error: () => {
@@ -57,10 +58,17 @@ export class TaskComponent implements OnInit {
 
   }
 
+  sortByState(){
+    this.tasksList = this.tasksList.filter((value) => {return value.state == 2});
+  }
+  sortByDate(){
+    this.tasksList = this.tasksList.sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+  }
+
 
   openNewTask(){
     const dialogNewTask = this.dialog.open(TaskDetailsComponent, {
-      height: '80%',width: '90%'});
+      height: '90%',width: '64%'});
     dialogNewTask.afterClosed().subscribe();
   }
   recycleTask(taskId: any){
@@ -85,12 +93,11 @@ export class TaskComponent implements OnInit {
   }
 
   openTimer(taskId: number){
+    const currentTask = this.getSelectedTask(taskId);
     const dialogBegintask = this.dialog.open(ClockComponent, {
-      height: '80%',width: '75%', disableClose: true});
+      height: '80%',width: '75%', disableClose: true, data: currentTask});
     dialogBegintask.afterClosed().subscribe( timer => {
-      console.log('out ' + timer.data);
 
-      const currentTask = this.getSelectedTask(taskId);
       currentTask.elapsedTime += timer.data;
       if(currentTask.elapsedTime > 0){
         currentTask.state = 1;
@@ -117,6 +124,20 @@ export class TaskComponent implements OnInit {
 
     return new Date(value * 1000).toISOString().substr(11, 8)
 
+  }
+  finishTask(event: any, taskId){
+    let currentTask = this.getSelectedTask(taskId);
+    let ischecked = event.checked;
+
+    if(ischecked){
+      this.currentState = currentTask.state;
+      currentTask.state = 2;
+    }
+    else {
+      currentTask.state = this.currentState;
+    }
+
+    this.appService.updateTask(currentTask).subscribe();
   }
 
 }
