@@ -68,9 +68,12 @@ export class RegisterComponent implements OnInit {
 
     if (this.registerForm.valid){
       const registerObserver = {
-        next: x => {console.log('SUCCESSS');
-          this.router.navigate(['/account']);
+        next: x => {
           this.showMessage = true;
+          setTimeout(() => {
+            this.router.navigate(['/account']);
+          }
+          , 8000);
         },
         error: err => { console.log('Failed');
           this.showMessage = false; }
