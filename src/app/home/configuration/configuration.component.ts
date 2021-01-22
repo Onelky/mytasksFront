@@ -26,6 +26,7 @@ export class ConfigurationComponent implements OnInit {
   constructor(private _snackBar: MatSnackBar,
               private authService: AuthenticationService) { }
 
+
   ngOnInit(): void {
   }
   // tslint:disable-next-line:typedef

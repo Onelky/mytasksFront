@@ -18,6 +18,7 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   showMessage = null;
+  messageDetail;
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthenticationService) {}
 
@@ -75,7 +76,8 @@ export class RegisterComponent implements OnInit {
           }
           , 8000);
         },
-        error: err => { console.log('Failed');
+        error: err => {
+          this.messageDetail =  err.error.message;
           this.showMessage = false; }
       };
       console.log(this.registerForm.value);

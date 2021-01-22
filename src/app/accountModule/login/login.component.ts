@@ -14,17 +14,18 @@ export class LoginComponent implements OnInit {
   showMessage = null;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private _router: Router,
-              private service: AuthenticationService) {
-  }
+  constructor(private fb: FormBuilder, private service: AuthenticationService,
+              private _router?: Router) {}
 
   ngOnInit(): void {
+    /*
     if (this.loggedIn()){
       this.router = '/account/home';
       this.router = this._router.url  ;
       this._router.navigate(['/account/home']);
       this.router = this._router.url;
     }
+    */
     this.createLoginForm();
   }
 

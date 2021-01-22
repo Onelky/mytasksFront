@@ -108,8 +108,7 @@
 
               </div>
 
-              <div class="alert alert-dismissible alert-success" *ngIf="showMessage == true"> Registration successful. </div>
-              <div class="alert alert-dismissible alert-danger" *ngIf="showMessage == false"> Registration could not be completed. </div>
+              <div class="alert alert-dismissible alert-danger" *ngIf="showMessage == false"> Registration could not be completed. {{messageDetail}}.</div>
 
               <input type="submit" [ngClass]="{'login-btn':  registerForm.valid, 'login-btn-disabled': registerForm.invalid}"
                      [disabled]="registerForm.invalid" name="signup"
@@ -119,7 +118,7 @@
               <div class="row"  *ngIf="showMessage">
                 <div class="col-xs-12">
                   <p class="alert alert-success">
-                    <strong>Registration Success!</strong> Please click here to login!.
+                    <strong>Registration was completed!</strong> Redirecting you to Login...
                   </p>
                 </div>
               </div>

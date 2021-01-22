@@ -47,7 +47,7 @@ export class TaskDetailsComponent implements OnInit {
 isNewTask(){
     if(this.selectedTask == undefined){
       this.selectedTask = {} as Task;
-      console.log(this.selectedTask)
+      console.log(this.selectedTask);
     }
     else {
       //this.taskForm.name.setValue(this.selectedTask.name)//get('name').setValue(this.selectedTask.name)
