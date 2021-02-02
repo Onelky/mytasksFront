@@ -54,8 +54,10 @@
         </div>
 
 
-        <button (click)="recycleTask(task.id)" mat-icon-button class="delete-task-icon no-focus" matTooltip="Delete task" matTooltipPosition="below">
-          <mat-icon>delete</mat-icon></button>
+        <button id="delete" class="delete"  (click)="recycleTask(task.id)" mat-icon-button class="delete-task-icon no-focus" matTooltip="Delete task" matTooltipPosition="below">
+          <mat-icon>delete</mat-icon>
+        </button>
+
         <button mat-icon-button class="more-icon no-focus" [matMenuTriggerFor]="options">
           <mat-icon>more_vert</mat-icon>
         </button>

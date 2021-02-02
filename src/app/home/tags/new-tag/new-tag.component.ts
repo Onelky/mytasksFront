@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {ApplicationService} from '../../../services/application.service';
+import { Tag } from 'src/app/shared/tag';
 
 @Component({
   selector: 'app-new-tag',
@@ -10,6 +11,7 @@ import {ApplicationService} from '../../../services/application.service';
   styleUrls: ['./new-tag.component.css']
 })
 export class NewTagComponent implements OnInit {
+  tagList = this.appService.tagsList;
 
   newTagForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -32,6 +34,7 @@ export class NewTagComponent implements OnInit {
       }
     };
     this.appService.createTag(tag).subscribe(tagObserver);
+    this.tagList = this.appService.tagsList;//
 
   }
   openSnackBar(message: string) {

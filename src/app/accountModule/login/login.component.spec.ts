@@ -22,9 +22,7 @@ describe('LoginComponent', () => {
     loginService = new AuthenticationService(null);
     component = new LoginComponent(new FormBuilder(), loginService, routerSpy);
     component.ngOnInit();
-    
-
-
+  
   }));
 
 /*
@@ -41,19 +39,6 @@ describe('LoginComponent', () => {
     component.loginForm.controls['Password'].setValue(password);
 
   }
-
-  function loginTest (form: any){
-
-    if(form == user){
-
-      return true; 
-    }
-    else {
-      return false;
-    }
-
-  }
-
     
 
   it('should create login component', () => {
@@ -63,21 +48,19 @@ describe('LoginComponent', () => {
   it('should create a form with 2 controls', () =>{
     expect(component.loginForm.contains('Username')).toBeTruthy();
     expect(component.loginForm.contains('Password')).toBeTruthy();
-
   })
 
   it('should make username control required', () => {
     let control = component.loginForm.get('Username');
     control.setValue('');
     expect(control.valid).toBeFalsy();
-
   });
 
   it('should make password control required', () => {
     let control = component.loginForm.get('Password');
     control.setValue('');
     expect(control.valid).toBeFalsy();
-  })
+  });
 
   it('login form initial state should be invalid', ()=>{
     expect(component.loginForm).toBeDefined();
@@ -95,7 +78,7 @@ describe('LoginComponent', () => {
   it('password should be more than 8 char', () => {
 
     let control = component.loginForm.get('Password');
-    control.setValue('contra7');
+    control.setValue('Ho');
     expect(control.valid).toBeFalsy();
 
   })
@@ -131,14 +114,14 @@ describe('LoginComponent', () => {
 
   it('should not allow login if username is invalid', () => {
 
-    updateForm('onelk', 'Hola123@');
+    updateForm('joseperez0', 'Hola123@');
 
     const form = component.loginForm.value;
-    let comparison = false;
+    let realizarLogin = false;
 
-    if(form == user) { comparison = false}
+    if (form == user) { realizarLogin = true}
 
-    expect(comparison).toBeFalsy();
+    expect(realizarLogin).toBeFalsy();
 
 
   })
